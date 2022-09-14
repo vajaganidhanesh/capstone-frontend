@@ -10,12 +10,13 @@ function RestaurantAuthentication()
             {
                 login===true?(
                     <div className='restaurant_authentication'>
+                       <div className='landpage_container'>
                         <h3>Please Login as Restaurant Admin</h3>
                         <div className='restaurant_container'>
                             <form className='restaurant_login_form'>
 
-                                <input type='text' placeholder='enter restaurant name'/>
-                                <input type='password' placeholder='enter restaurant name'/>
+                                <input type='text' placeholder='enter name or email'/>
+                                <input type='password' placeholder='enter password'/>
                                 <div className='btns_restaurant'>
 
                                     <button>Login</button>
@@ -31,37 +32,41 @@ function RestaurantAuthentication()
                                     }}>signup</span>
                                 </div>
                         </div>
+                        </div> 
                     </div>
                 ):(
                     <>
                         <div className='restaurant_authentication'>
-                        <h3>Register your restaurant into Capstone</h3>
-                        <div className='restaurant_container'>
-                            <form className='restaurant_login_form'>
+                            <div className='landpage_container'>
+                        
+                            <h3>Register your restaurant into Capstone</h3>
+                            <div className='restaurant_container'>
+                                <form className='restaurant_login_form'>
 
-                                <input type='text' placeholder='enter restaurant name'/>
-                                <input type='email' placeholder='enter restaurant email'/>
-                                <input type='password' placeholder='password'/>
-                                <input type='number' placeholder='enter mobile number'/>
-                                <input type='text' placeholder='enter restaurant address'/>
-                                <input type='text' placeholder='enter opening time'/>
-                                <input type='text' placeholder='enter closing time'/>
+                                    <input type='text' placeholder='enter restaurant name'/>
+                                    <input type='email' placeholder='enter restaurant email'/>
+                                    <input type='password' placeholder='password'/>
+                                    <input type='number' placeholder='enter mobile number'/>
+                                    <input type='text' placeholder='enter restaurant address'/>
+                                    <input type='text' placeholder='enter opening time'/>
+                                    <input type='text' placeholder='enter closing time'/>
 
-                                <div className='btns_restaurant'>
+                                    <div className='btns_restaurant'>
 
-                                    <button>signup</button>
+                                        <button>signup</button>
 
-                                </div>
-                                
-                            </form>
-                                <div className='signup_footer'>
-                                    <p>already have an admin account?</p>
-                                    <span onClick={()=>{
-                                        setLogin(true)
-                                    }}>Login</span>
-                                </div>
+                                    </div>
+                                    
+                                </form>
+                                    <div className='signup_footer'>
+                                        <p>already have an admin account?</p>
+                                        <span onClick={()=>{
+                                            setLogin(true)
+                                        }}>Login</span>
+                                    </div>
+                            </div>
                         </div>
-                    </div>
+                        </div>
                     </>
                 )
             }

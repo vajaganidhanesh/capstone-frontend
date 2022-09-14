@@ -16,15 +16,17 @@
     align-items: center;
     flex-direction: column;
     row-gap: 10px;
+    padding-top: 20px;
 }
 
 input{
     width: 100%;
     padding:10px 0px;
     outline: none;
-    text-indent: 10px;
-    border:1.5px solid #0CBC8B;
+    text-indent: 5px;
+    border:1.3px solid #0CBC8B;
     box-sizing: border-box!important;
+    border-radius: 7px;
 
 }
 

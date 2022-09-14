@@ -8,11 +8,22 @@
     flex-direction: column;
     row-gap: 10px;
 }
+.landpage_container{
+    width: auto;
+    padding: 20px;
+    box-shadow: 0 6px 15px 5px rgb(36 37 38 / 8%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
 
+}
 .navigations{
     display: flex;
     column-gap: 10px;
-    border: 1px solid #0CBC8B;
+    /* border: 1px solid #0CBC8B; */
     padding: 10px;
 }
 .restaurant_navigation{
