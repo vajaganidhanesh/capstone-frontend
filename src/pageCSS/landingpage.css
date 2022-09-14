@@ -1,0 +1,34 @@
+.landpage{
+    width: 100%;
+    height: 100vh;
+    background:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.navigations{
+    display: flex;
+    column-gap: 10px;
+    border: 1px solid #0CBC8B;
+    padding: 10px;
+}
+.restaurant_navigation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+button{
+    width: 100px;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    background: #0CBC8B;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    font-weight: bold;
+    transition: .5s;
+}
