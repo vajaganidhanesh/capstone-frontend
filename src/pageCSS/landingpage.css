@@ -31,4 +31,6 @@ button{
     text-transform: capitalize;
     font-weight: bold;
     transition: .5s;
+    box-sizing: border-box!important;
+
 }

@@ -15,12 +15,14 @@ function LandingPage(){
                     <div className='restaurant_navigation'>
                         <p>Lets spread your taste</p>
                         <button onClick={()=>{
-                            navigate('/footer')
+                            navigate('/userAuthentication')
                         }}>Lets sell</button>
                     </div>
                     <div className='restaurant_navigation'>
                         <p>Lets taste our food</p>
-                        <button>Lets buy</button>
+                        <button onClick={()=>{
+                            navigate('/restaurantAuthentication')
+                        }}>Lets buy</button>
                     </div>
 
                 </div>

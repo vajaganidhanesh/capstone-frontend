@@ -1,0 +1,56 @@
+.restaurant_authentication{
+    width: 100%;
+    height: 100vh;
+    /* background: lightgrey; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.restaurant_login_form{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+input{
+    width: 100%;
+    padding:10px 0px;
+    outline: none;
+    text-indent: 10px;
+    border:1.5px solid #0CBC8B;
+    box-sizing: border-box!important;
+
+}
+
+.btns_restaurant{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+button:active{
+    transform: scale(1.4);
+}
+
+.signup_footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    padding-top: 10px;
+
+}
+.signup_footer>span{
+    cursor: pointer;
+}
+
+.signup_footer>p{
+    font-weight: 100;
+}
