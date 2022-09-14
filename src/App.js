@@ -7,6 +7,8 @@ import Header from './components/header';
 import Footer from './components/footer';
 import LandingPage from './pages/landingPage';
 import RestaurantList from './pages/restaurantList';
+import UserAuthentication from './pages/userAuthentication';
+import RestaurantAuthentication from './pages/RestaurantAuthentication';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path='/footer' element={<Footer/>} />
             <Route path='/' element={<LandingPage/>} />
             <Route path='/restaurants' element={<RestaurantList/>}/>
+            <Route path='/userAuthentication' element={<UserAuthentication/>}/>
+            <Route path='/restaurantAuthentication' element={<RestaurantAuthentication/>}/>
           </Routes>
       </BrowserRouter>
    </>
