@@ -1,16 +1,18 @@
 
 .header{
-    height: 80px;
+    height: auto;
     width:100%;
     position: fixed;
     z-index: 100;
     background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    box-shadow: 0 6px 10px  rgb(36 37 38 / 8%);
+    
 }
 .mobile{
     display: none;
 }
 .navbar{
-    height:80px;
+    height:auto;
     width: 100%;
     display: flex;
     z-index: 100px;
@@ -21,7 +23,7 @@
 }
 .logo_section{
     width:30%;
-    height:80px;
+    height:auto;
     display: flex;
     justify-content: center;
     align-items: center;

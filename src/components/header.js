@@ -14,11 +14,11 @@ function Header()
                     </div>
                     <div className="nav_container">
                         <ul className="nav_links" id="nav_links">
-                            <li className="nav_link">home</li>
-                            <li className="nav_link">restaurants</li>
-                            <li className="nav_link">famous items</li>
-                            <li className="nav_link">about</li>
-                            <li className="nav_link">contact</li>
+                            <li className="nav_link">Your menu</li>
+                            <li className="nav_link">Your orders</li>
+                            <li className="nav_link">special items</li>
+                            <li className="nav_link">sign up</li>
+                            <li className="nav_link">login</li>
                             <i className="fa-solid fa-cart-shopping"></i>
                         </ul>
                     </div>

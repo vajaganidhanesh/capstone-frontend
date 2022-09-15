@@ -12,7 +12,7 @@ import RestaurantAuthentication from './pages/RestaurantAuthentication';
 import RestaurantLogin from './pages/restaurantLogin';
 import UserLogin from './pages/userLogin';
 import CreateItem from './pages/createItem';
-
+import Allitems from './pages/allitems';
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
             <Route path='/restaurantLogin' element={<RestaurantLogin/>}/>
             <Route path='/userlogin' element={<UserLogin/>}/>
             <Route path='/createitem' element={<CreateItem/>}/>
+            <Route path='/allitems' element={<Allitems/>}/>
 
 
           </Routes>
