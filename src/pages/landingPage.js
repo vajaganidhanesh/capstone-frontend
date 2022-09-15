@@ -16,7 +16,7 @@ function LandingPage(){
                         <div className='restaurant_navigation'>
                             <p>Lets spread your taste</p>
                             <button onClick={()=>{
-                                navigate('/restaurantAuthentication')
+                                navigate('/restaurantLogin')
                             }}>Lets sell</button>
                         </div>
                         <div className='restaurant_navigation'>

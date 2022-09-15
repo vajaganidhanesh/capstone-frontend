@@ -9,6 +9,8 @@ import LandingPage from './pages/landingPage';
 import RestaurantList from './pages/restaurantList';
 import UserAuthentication from './pages/userAuthentication';
 import RestaurantAuthentication from './pages/RestaurantAuthentication';
+import RestaurantLogin from './pages/restaurantLogin';
+import UserLogin from './pages/userLogin';
 
 function App() {
   return (
@@ -21,6 +23,10 @@ function App() {
             <Route path='/restaurants' element={<RestaurantList/>}/>
             <Route path='/userAuthentication' element={<UserAuthentication/>}/>
             <Route path='/restaurantAuthentication' element={<RestaurantAuthentication/>}/>
+            <Route path='/restaurantLogin' element={<RestaurantLogin/>}/>
+            <Route path='/userlogin' element={<UserLogin/>}/>
+
+
           </Routes>
       </BrowserRouter>
    </>

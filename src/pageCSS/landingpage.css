@@ -43,5 +43,9 @@ button{
     font-weight: bold;
     transition: .5s;
     box-sizing: border-box!important;
+}
+button:hover{
+    cursor: pointer;
+    /* transform: scale(1.01); */
 
 }
