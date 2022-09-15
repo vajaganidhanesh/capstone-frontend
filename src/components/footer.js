@@ -27,7 +27,7 @@ function Footer()
                         <li className="footer_link">CONTANT US</li>
                         <li className="footer_link_a">Track Orders</li>
                         <li className="footer_link_a">Capstone@favorategood.in</li>
-                        <li className="footer_link_a">+91</li>
+                        <li className="footer_link_a">+91-7670905538</li>
                         <li className="footer_link_a">Timings : 10am - 10pm</li>
                         <li className="footer_link_a">Monday to Saturday</li>
 
