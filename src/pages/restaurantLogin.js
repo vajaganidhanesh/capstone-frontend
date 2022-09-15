@@ -27,8 +27,8 @@ function RestaurantLogin()
             if(responseData.success===true)
             {
                 console.log(responseData);
-                localStorage.setItem("login_details",JSON.stringify(responseData));
-                
+                localStorage.setItem("rest_login_details",JSON.stringify(responseData));
+                navigate('/createitem')
             }
             else{
 
@@ -47,7 +47,7 @@ function RestaurantLogin()
                 <div className='restaurant_container'>
                     <form className='restaurant_login_form'>
 
-                        <input type='text' placeholder='enter name or email'onChange={(event)=>{
+                        <input type='text' placeholder='enter admin email'onChange={(event)=>{
                             readValue('email',event.target.value)
                         }}/>
                         <input type='password' placeholder='enter password'onChange={(event)=>{

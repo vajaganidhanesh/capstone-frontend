@@ -1,0 +1,85 @@
+
+.header{
+    height: 80px;
+    width:100%;
+    position: fixed;
+    z-index: 100;
+    background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+}
+.mobile{
+    display: none;
+}
+.navbar{
+    height:80px;
+    width: 100%;
+    display: flex;
+    z-index: 100px;
+    justify-content: space-between;
+    align-items: center;
+   
+
+}
+.logo_section{
+    width:30%;
+    height:80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    /* font-weight: 300; */
+    font-size: 30px;
+    align-items: center;
+    /* font-family: semibold; */
+    cursor: pointer;
+    transition: .3s;
+}
+
+.logo:hover{
+    color:#0CBC8B;
+}
+
+.nav_container{
+    width:50%;
+    height:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.nav_links{
+    list-style: none;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.nav_link{
+    display: inline-block;
+    /* font-family:semibold; */
+    font-weight: 450;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.nav_link:hover{
+    color: #0CBC8B;
+    cursor: pointer;
+}
+
+button > a{
+    color: #f4f4f4;
+}
+
+button > a:hover{
+    color: #0CBC8B;
+}

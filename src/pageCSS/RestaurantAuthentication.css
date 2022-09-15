@@ -47,7 +47,6 @@ button:active{
     justify-content: center;
     column-gap: 10px;
     padding-top: 10px;
-
 }
 .signup_footer>span{
     cursor: pointer;
@@ -55,4 +54,5 @@ button:active{
 
 .signup_footer>p{
     font-weight: 100;
+    margin: 0px;
 }
