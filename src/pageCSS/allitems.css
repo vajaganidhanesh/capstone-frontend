@@ -1,0 +1,8 @@
+.allitems{
+    padding-top: 80px;
+    
+}
+.allitems > h3{
+    text-align: center;
+    padding: 10px 0px;
+}

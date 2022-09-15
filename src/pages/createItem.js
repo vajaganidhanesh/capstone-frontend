@@ -47,7 +47,7 @@ function CreateItem()
     return(
         <>
             <Header/>
-            <div className='restaurant_authentication'>
+            <div className='restaurant_authentication createItem'>
                     <div className='landpage_container'>
                 
                     <h3>please enter available cusine or dish details</h3>
@@ -69,13 +69,11 @@ function CreateItem()
                             <input type='file' placeholder='enter mobile pic'  required onChange={(event)=>{
                             readValue('picture',event.target.files[0])
                         }}/>
-                            <div className='btns_restaurant'>
+                          
 
                                 <button type='button' onClick={()=>{
                                     itemcreation()
                                 }}>createItem</button>
-
-                            </div>
                             
                         </form>
                             <div className='signup_footer'>
