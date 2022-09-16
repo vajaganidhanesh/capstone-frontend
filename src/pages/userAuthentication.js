@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom"
+import Footer from "../components/footer";
+import Header from "../components/header";
 
 
 function UserAuthentication()
@@ -33,7 +35,7 @@ function UserAuthentication()
     }
     return(
         <>
-        
+            <Header/>
             <div className='restaurant_authentication'>
                     <div className='landpage_container'>
                 
@@ -41,16 +43,16 @@ function UserAuthentication()
                     <div className='restaurant_container'>
                         <form ref={form} className='restaurant_login_form'>
 
-                            <input type='text' placeholder='enter restaurant name' onChange={(event)=>{
+                            <input class="input_field" type='text' placeholder='enter restaurant name' onChange={(event)=>{
                             readValue('name',event.target.value)
                         }}/>
-                            <input type='email' placeholder='enter restaurant email' required onChange={(event)=>{
+                            <input class="input_field" type='email' placeholder='enter restaurant email' required onChange={(event)=>{
                             readValue('email',event.target.value)
                         }}/>
-                            <input type='password' placeholder='password' required onChange={(event)=>{
+                            <input class="input_field" type='password' placeholder='password' required onChange={(event)=>{
                             readValue('password',event.target.value)
                         }}/>
-                            <input type='number' placeholder='enter mobile number' maxLength={10} min={10} required onChange={(event)=>{
+                            <input class="input_field" type='number' placeholder='enter mobile number' maxLength={10} min={10} required onChange={(event)=>{
                             readValue('mobile',event.target.value)
                         }}/>
 
@@ -74,7 +76,7 @@ function UserAuthentication()
                 </div>
             </div>
             
-                    
+            <Footer/>    
         </>
     )
 }

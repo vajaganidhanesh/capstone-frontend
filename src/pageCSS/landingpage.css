@@ -8,10 +8,28 @@
     flex-direction: column;
     row-gap: 10px;
 }
+.landpage_main{
+    flex-direction: row;
+}
+.landpage_image{
+    width: 50%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+}
+.landpage_image>img{
+    width: 90%;
+}
+.landpage_contant{
+    width: 50%;
+    height: 100%;
+    background-color:#DEE8F5;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 .landpage_container{
     width: auto;
-    padding: 20px;
-    box-shadow: 0 6px 15px 5px rgb(36 37 38 / 8%);
     border-radius: 16px;
     display: flex;
     align-items: center;

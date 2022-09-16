@@ -35,7 +35,47 @@ function Allitems()
         <>
             <Header/>
                 <div className="allitems">
-                <h3>All food items</h3>
+                <h3>Your Restaurant items</h3>
+                    <div className='item_container'>
+                        <div className='item_details'>
+
+                            <div className='image_container'>
+
+                            </div>
+
+                            <div className='item_description'>
+
+                                <div className='item_name'>
+                                    biriyani
+                                </div>
+                                <div className='item_quantity'>
+                                   pack of 1kg 
+                                </div>
+                                <div className='item_price'>
+                                   price of 200
+                                </div>
+
+                                <button>ADD TO CART</button>
+                            </div>
+
+
+                        </div>
+                         <div className='item_details'>
+
+                        </div>
+                         <div className='item_details'>
+
+                        </div>
+                        <div className='item_details'>
+
+                        </div>
+                        <div className='item_details'>
+
+                        </div>
+                        <div className='item_details'>
+
+                        </div>
+                    </div>
 
                 </div>
 

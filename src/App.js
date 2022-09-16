@@ -22,6 +22,7 @@ function App() {
             <Route path='/header' element={<Header/>} />
             <Route path='/footer' element={<Footer/>} />
             <Route path='/' element={<LandingPage/>} />
+            <Route path='/landingpage' element={<LandingPage/>} />
             <Route path='/restaurants' element={<RestaurantList/>}/>
             <Route path='/userAuthentication' element={<UserAuthentication/>}/>
             <Route path='/restaurantAuthentication' element={<RestaurantAuthentication/>}/>

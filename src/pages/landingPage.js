@@ -7,10 +7,13 @@ function LandingPage(){
     let navigate = useNavigate();
     return(
         <>
-            <div className='landpage'>
-                <div className='landpage_container'>
+            <div className='landpage landpage_main'>
+                <div className='landpage_image'>
+                    <img src="../assets/Upload 1.svg" alt="landing page" />
+                </div>
+                <div className='landpage_container landpage_contant'>
                     
-                        <h2>Capstone </h2>
+                    <h3>Capstone Online food delivery app</h3>
                 
                     <div className='navigations'>
                         <div className='restaurant_navigation'>

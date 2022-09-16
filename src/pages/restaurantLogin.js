@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/footer";
+import Header from "../components/header";
 
 function RestaurantLogin()
 {
@@ -41,16 +43,17 @@ function RestaurantLogin()
     }
     return(
         <>
+        <Header/>
             <div className='restaurant_authentication'>
                 <div className='landpage_container'>
                 <h3>Please Login as Restaurant Admin</h3>
                 <div className='restaurant_container'>
                     <form className='restaurant_login_form'>
 
-                        <input type='text' placeholder='enter admin email'onChange={(event)=>{
+                        <input type='text' class="input_field" placeholder='enter admin email'onChange={(event)=>{
                             readValue('email',event.target.value)
                         }}/>
-                        <input type='password' placeholder='enter password'onChange={(event)=>{
+                        <input type='password' class="input_field" placeholder='enter password'onChange={(event)=>{
                             readValue('password',event.target.value)
                         }}/>
                         <div className='btns_restaurant'>
@@ -72,7 +75,7 @@ function RestaurantLogin()
                 </div>
                 </div> 
             </div>
-               
+        <Footer/>
         </>
     )
 }
