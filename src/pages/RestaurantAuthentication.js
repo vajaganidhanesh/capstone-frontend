@@ -38,7 +38,7 @@ function RestaurantAuthentication()
         <>   
             <Header/>
                 <div className='rest_main_class'>
-                    <div className='restaurant_image'>
+                    <div className='restaurant_image landpage_image'>
                         <img src="../assets/Upload.svg" alt='uploadimage'/>
                     </div>
                     <div className='restaurant_authentication'>

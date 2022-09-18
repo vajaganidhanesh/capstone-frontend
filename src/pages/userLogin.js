@@ -41,37 +41,44 @@ function UserLogin()
     return(
         <>
             <Header/>
-            <div className='restaurant_authentication'>
-                <div className='landpage_container'>
-                <h3>Please login Foodie..</h3>
-                <div className='restaurant_container'>
-                    <form className='restaurant_login_form'>
+                <div className='rest_main_class rest_main_login_class'>
 
-                        <input class="input_field" type='text' placeholder='enter name or email' onChange={(event)=>{
-                            readValue('email',event.target.value)
-                        }}/>
-                        <input class="input_field" type='password' placeholder='enter password' onChange={(event)=>{
-                            readValue('password',event.target.value)
-                        }}/>
-                        <div className='btns_restaurant'>
+                    <div className='restaurant_image landpage_image restaurant_login'>
+                        <img src="../assets/user_login.svg" alt='uploadimage'/>
+                    </div>
 
-                            <button type="button" onClick={()=>{
-                                loginDetails()
-                            }}>Login</button>
+                    <div className='restaurant_authentication'>
+                        <div className='landpage_container'>
+                        <h3>Please login Foodie..</h3>
+                        <div className='restaurant_container'>
+                            <form className='restaurant_login_form'>
 
+                                <input class="input_field" type='text' placeholder='enter name or email' onChange={(event)=>{
+                                    readValue('email',event.target.value)
+                                }}/>
+                                <input class="input_field" type='password' placeholder='enter password' onChange={(event)=>{
+                                    readValue('password',event.target.value)
+                                }}/>
+                                <div className='btns_restaurant'>
+
+                                    <button type="button" onClick={()=>{
+                                        loginDetails()
+                                    }}>Login</button>
+
+                                </div>
+
+                            </form>
+
+                            <div className='signup_footer'>
+                                    <p>Don't have an customer account?</p>
+                                    <span onClick={()=>{
+                                        navigate('/userAuthentication')
+                                    }}>signup</span>
+                                </div>
                         </div>
-
-                    </form>
-
-                    <div className='signup_footer'>
-                            <p>Don't have an customer account?</p>
-                            <span onClick={()=>{
-                                navigate('/userAuthentication')
-                            }}>signup</span>
-                        </div>
+                        </div> 
+                    </div>
                 </div>
-                </div> 
-            </div>
             <Footer/>
         </>
     )

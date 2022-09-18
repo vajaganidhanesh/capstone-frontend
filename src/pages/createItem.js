@@ -17,7 +17,6 @@ function CreateItem()
     function readValue(property,value)
     {
         items.append(property,value)
-        console.log(items);
     }
 
     function itemcreation(){
@@ -33,11 +32,9 @@ function CreateItem()
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data);
-            console.log("hello");
-
             if(data.success === true)
             {
-                // navigat('/homepage')
+                navigate('/allitems')
             }
         })
         .catch((err)=>{
@@ -58,16 +55,16 @@ function CreateItem()
                             <input className='input_field' type='text' placeholder='enter name of the dish' onChange={(event)=>{
                             readValue('name',event.target.value)
                         }}/>
-                            <input className='input_field' type='number' placeholder='enter restaurant quantity' required onChange={(event)=>{
+                            <input className='input_field' type='number' placeholder='enter food quantity' required onChange={(event)=>{
                             readValue('quantity',event.target.value)
                         }}/>
                             <input className='input_field' type='number' placeholder='enter price' required onChange={(event)=>{
                             readValue('price',event.target.value)
                         }}/>
-                            <input className='input_field' type='text' placeholder='enter mobile description'  required onChange={(event)=>{
+                            <input className='input_field' type='text' placeholder='enter item description'  required onChange={(event)=>{
                             readValue('description',event.target.value)
                         }}/>
-                            <input className='input_field' type='file' placeholder='enter mobile pic'  required onChange={(event)=>{
+                            <input className='input_field' type='file' placeholder='enter item pic'  required onChange={(event)=>{
                             readValue('picture',event.target.files[0])
                         }}/>
                           

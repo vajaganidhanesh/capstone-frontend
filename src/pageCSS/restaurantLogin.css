@@ -1,0 +1,23 @@
+.rest_main_login_class{
+    justify-content: center;
+    align-items: center;
+}
+
+.restaurant_login{
+    width: 40%;
+    height: 400px;
+    display: flex;
+    height: auto;
+}
+
+.restaurant_auth_login{
+    height: 300px;
+    padding-top: 30px;
+    align-items: center;
+    justify-content: center;;
+}
+
+.landpage_container > h4{
+    font-family: semibold;
+    color: #292A2E;
+}
