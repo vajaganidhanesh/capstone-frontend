@@ -1,12 +1,15 @@
 import '../pageCSS/landingpage.css'
 
 import {useNavigate} from 'react-router-dom' 
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 function LandingPage(){
 
     let navigate = useNavigate();
     return(
         <>
+        <Header/>
             <div className='landpage landpage_main'>
                 <div className='landpage_image'>
                     <img src="../assets/Upload 1.svg" alt="landing page" />
@@ -44,6 +47,8 @@ function LandingPage(){
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </>
     )
 }

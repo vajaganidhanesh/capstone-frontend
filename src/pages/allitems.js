@@ -58,13 +58,13 @@ function Allitems()
                                             <div className='item_description'>
 
                                                 <div className='item_name'>
-                                                    {items.name}
+                                                    <span>{items.name}</span>
                                                 </div>
                                                 <div className='item_quantity'>
-                                                available quantity {items.quantity} 
+                                                Available quantity <span>{items.quantity}</span>
                                                 </div>
                                                 <div className='item_price'>
-                                                price of each {items.price}
+                                                Price of each <span>{items.price}</span>/-
                                                 </div>
 
                                                 <div className='feature_buttons'>

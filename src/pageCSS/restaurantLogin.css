@@ -1,6 +1,7 @@
 .rest_main_login_class{
     justify-content: center;
     align-items: center;
+    column-gap: 30px;
 }
 
 .restaurant_login{

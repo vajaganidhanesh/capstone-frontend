@@ -45,7 +45,7 @@ function UserAuthentication()
                 <div className='restaurant_authentication'>
                         <div className='landpage_container'>
                     
-                        <h3>Hey Foodie signup into Capstone</h3>
+                        <h4>Hey Foodie signup!</h4>
                         <div className='restaurant_container'>
                             <form ref={form} className='restaurant_login_form'>
 

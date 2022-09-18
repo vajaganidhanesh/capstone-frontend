@@ -45,45 +45,53 @@ function CreateItem()
     return(
         <>
             <Header/>
-            <div className='restaurant_authentication'>
+            <div className='rest_main_class rest_main_login_class'>
+                    <div className='restaurant_image landpage_image restaurant_login'>
+                        <img src="../assets/cooking.svg" alt='uploadimage'/>
+                    </div>
+
+                <div className='restaurant_authentication'>
                     <div className='landpage_container'>
-                
-                    <h3>please enter available cusine or dish details</h3>
-                    <div className='restaurant_container'>
-                        <form ref={form} className='restaurant_login_form'>
+                    
+                        <h3>Post your cusine or dish details</h3>
+                        <div className='restaurant_container'>
+                            <form ref={form} className='restaurant_login_form'>
 
-                            <input className='input_field' type='text' placeholder='enter name of the dish' onChange={(event)=>{
-                            readValue('name',event.target.value)
-                        }}/>
-                            <input className='input_field' type='number' placeholder='enter food quantity' required onChange={(event)=>{
-                            readValue('quantity',event.target.value)
-                        }}/>
-                            <input className='input_field' type='number' placeholder='enter price' required onChange={(event)=>{
-                            readValue('price',event.target.value)
-                        }}/>
-                            <input className='input_field' type='text' placeholder='enter item description'  required onChange={(event)=>{
-                            readValue('description',event.target.value)
-                        }}/>
-                            <input className='input_field' type='file' placeholder='enter item pic'  required onChange={(event)=>{
-                            readValue('picture',event.target.files[0])
-                        }}/>
-                          
+                                <input className='input_field' type='text' placeholder='enter name of the dish' onChange={(event)=>{
+                                readValue('name',event.target.value)
+                            }}/>
+                                <input className='input_field' type='number' placeholder='enter food quantity' required onChange={(event)=>{
+                                readValue('quantity',event.target.value)
+                            }}/>
+                                <input className='input_field' type='number' placeholder='enter price' required onChange={(event)=>{
+                                readValue('price',event.target.value)
+                            }}/>
+                                <input className='input_field' type='text' placeholder='enter item description'  required onChange={(event)=>{
+                                readValue('description',event.target.value)
+                            }}/>
+                                <input className='input_field' type='file' placeholder='enter item pic'  required onChange={(event)=>{
+                                readValue('picture',event.target.files[0])
+                            }}/>
+                            
 
-                                <button type='button' onClick={()=>{
-                                    itemcreation()
-                                }}>createItem</button>
-                            
-                        </form>
-                            <div className='signup_footer'>
-                                <p>lets check the your items..</p>
-                                <span onClick={()=>{
-                                    navigate('/allitems')
-                                }}>Items</span>
-                            </div>
-                            
+                                    <button type='button' onClick={()=>{
+                                        itemcreation()
+                                    }}>createItem</button>
+                                
+                            </form>
+                                <div className='signup_footer'>
+                                    <p>lets check the your items..</p>
+                                    <span onClick={()=>{
+                                        navigate('/allitems')
+                                    }}>Items</span>
+                                </div>
+                                
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                    
+                </div>
             <Footer/>
         </>
     )

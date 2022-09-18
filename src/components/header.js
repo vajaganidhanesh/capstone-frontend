@@ -17,9 +17,9 @@ function Header()
                         <ul className="nav_links" id="nav_links">
                             <li className="nav_link">menu</li>
                             <li className="nav_link">restaurants</li>
-                            <li className="nav_link">items</li>
-                            <li className="nav_link">admin</li>
-                            <li className="nav_link">user</li>
+                            <Link ><li className="nav_link">items</li></Link>
+                            <Link to="/restaurantLogin"><li className="nav_link">admin</li></Link>
+                            <Link to="/userlogin"><li className="nav_link">user</li></Link>
                             {/* <i className="fa-solid fa-cart-shopping"></i> */}
                         </ul>
                     </div>
