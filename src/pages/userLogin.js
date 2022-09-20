@@ -14,6 +14,7 @@ function UserLogin()
     }
 
     function loginDetails(){
+
         fetch("http://localhost:8000/user/login",{
             method:"POST",
             headers:{
@@ -21,12 +22,16 @@ function UserLogin()
             },
             body:JSON.stringify(userCred)
         })
+
         .then((response)=>response.json())
         .then((responseData)=>{
+
             if(responseData.success===true)
             {
+
                 console.log(responseData);
                 localStorage.setItem("login_details",JSON.stringify(responseData));
+                navigate('/menu')
                 
             }
             else{

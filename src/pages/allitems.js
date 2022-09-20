@@ -256,7 +256,7 @@ function Allitems()
                          
                     </div>
 
-                </div>
+            </div>
 
             <Footer/>
         </>
