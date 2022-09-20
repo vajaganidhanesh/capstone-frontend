@@ -50,13 +50,14 @@
 
 .item_details{
     width: 23%;
-    height: 500px;
+    height: auto;
     /* background-color:#DFE6F5; */
     display: flex;
     flex-direction: column;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 6px 15px rgb(36 37 38 / 8%);
+    font-size: 15px;
 }
 .image_container{
     width: 100%;
@@ -76,6 +77,30 @@
     flex-direction: column;
     justify-content: flex-start;
     row-gap: 5px;
+    font-size: 14px;
+}
+
+
+.item_description >div >div >span , 
+.item_description >div >span{
+
+    font-family: regular;
+}
+
+.item_description >div >div  , 
+.item_description >div {
+    
+    font-family: semibold;
+}
+
+.item_name_dish{
+    font-family: semibold!important;
+    font-weight: 100!important;
+}
+
+.item_quantity{
+    display: flex;
+    justify-content: space-between;
 }
 
 .feature_buttons > button{

@@ -57,26 +57,40 @@ function CreateItem()
                         <div className='restaurant_container'>
                             <form ref={form} className='restaurant_login_form'>
 
+                               
+                                        
                                 <input className='input_field' type='text' placeholder='enter name of the dish' onChange={(event)=>{
                                 readValue('name',event.target.value)
-                            }}/>
-                                <input className='input_field' type='number' placeholder='enter food quantity' required onChange={(event)=>{
-                                readValue('quantity',event.target.value)
-                            }}/>
-                                <input className='input_field' type='number' placeholder='enter price' required onChange={(event)=>{
-                                readValue('price',event.target.value)
-                            }}/>
+                                }}/>
+
+                                <div className='input_block_one'>
+
+                                    <input className='input_field' type='number' placeholder='enter food quantity' required onChange={(event)=>{
+                                    readValue('quantity',event.target.value)
+                                    }}/>
+
+                                    
+                                    <input className='input_field' type='number' placeholder='enter price' required onChange={(event)=>{
+                                    readValue('price',event.target.value)
+                                    }}/>
+
+                                </div>
+                                <input className='input_field' type='number' placeholder='enter available stock' required onChange={(event)=>{
+                                    readValue('stock',event.target.value)
+                                    }}/>
+
                                 <input className='input_field' type='text' placeholder='enter item description'  required onChange={(event)=>{
                                 readValue('description',event.target.value)
-                            }}/>
+                                }}/>
+
                                 <input className='input_field' type='file' placeholder='enter item pic'  required onChange={(event)=>{
                                 readValue('picture',event.target.files[0])
-                            }}/>
+                                }}/>
                             
 
-                                    <button type='button' onClick={()=>{
-                                        itemcreation()
-                                    }}>createItem</button>
+                                <button type='button' onClick={()=>{
+                                    itemcreation()
+                                }}>createItem</button>
                                 
                             </form>
                                 <div className='signup_footer'>

@@ -160,7 +160,11 @@ function Allitems()
                             <input type='number' className="input_field" placeholder='enter price'onChange={(event)=>{
                                 readValue('price',event.target.value)
                             }} defaultValue={itemData?.price}/>
-    
+
+                            <input type='number' className="input_field" placeholder='enter available stock'onChange={(event)=>{
+                                readValue('stock',event.target.value)
+                            }} defaultValue={itemData?.stock}/>
+
                             <input className='input_field' type='text' placeholder='enter item description'  required onChange={(event)=>{
                                     readValue('description',event.target.value)
                                 }} defaultValue={itemData?.description}/>
@@ -204,14 +208,21 @@ function Allitems()
                                             <div className='item_description'>
 
                                                 <div className='item_name'>
-                                                    <span>{items.name}</span>
+                                                    <span className='item_name_dish'>{items.name}</span>
                                                 </div>
                                                 <div className='item_quantity'>
-                                                Available quantity <span>{items.quantity}</span>
+
+                                                     <div>Quantity <span>{items.quantity} packs</span></div>
+
+                                                    <div className='item_price'>
+                                                        Price <span>{items.price} /-</span>
+                                                    </div>
+
                                                 </div>
-                                                <div className='item_price'>
-                                                Price of each <span>{items.price}</span>/-
-                                                </div>
+                                                <div>Available stock <span>{items.stock}</span></div>
+
+                                                <div>ingredients <span>{items.description}</span> </div>
+                                                
 
                                                 <div className='feature_buttons'>
                                                     <button onClick={()=>{
