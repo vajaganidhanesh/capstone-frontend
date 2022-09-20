@@ -11,6 +11,10 @@ function Allitems()
     let loginDetails = useRef(JSON.parse(localStorage.getItem('rest_login_details')));
     
     let [items,setItems] = useState([]);
+    let [updateItem,setUpdateItem] = useState(false);
+    let [itemData ,setItemData] = useState({})
+    let updateItemData = new FormData();
+    // let navigate= useNavigate({}
 
     useEffect(()=>{
 
@@ -27,6 +31,8 @@ function Allitems()
                 
                 console.log(data);
                 setItems(data.items)
+
+
             }
         })
         .catch((err)=>{
@@ -34,14 +40,154 @@ function Allitems()
         })
 
     },[])
+    
+
+    function readValue(property,value)
+    {
+        updateItemData.append(property,value)
+        
+        
+    }
+
+    function updateUi()
+    {
+
+        fetch(`http://localhost:8000/items/getitems/${loginDetails.current.userid}`,{
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`
+            }
+        })
+
+        .then((response)=>response.json())
+        .then((data)=>{
+
+            if(data.success === true)
+            {
+                
+                console.log(data);
+                setItems(data.items)
+
+
+            }
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    function setItemDetails(items)
+    {
+        setUpdateItem(true)
+        setItemData(items)
+       
+    }
+
+    function updateProfile(itemData)
+    {
+        fetch(`http://localhost:8000/items/update/${itemData._id}`,{
+            method:'PUT',
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`
+            },
+            body:updateItemData
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            if(data.success === true)
+            {
+                
+                console.log(data);
+                setUpdateItem(false)
+                updateUi();
+            
+            }
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+
+    function deleteItem(items){
+
+        let itemdata = {...items}
+        fetch(`http://localhost:8000/items/deleteitem/${itemdata._id}`,{
+            method:"DELETE",
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`
+            }
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            if(data.success === true)
+            {
+                
+                console.log(data);
+                updateUi();
+            
+            }
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
     return(
         
         <>
+
+            {
+                updateItem===true?(
+                    <div className='update_item' onClick={()=>{
+                        setUpdateItem(false)
+                    }}>
+
+                    <div className='update_model_container'onClick={(e)=>{
+                            e.stopPropagation();
+                        }}>
+                        <h4>Please update your item</h4>
+    
+                        <form className='restaurant_login_form'>
+    
+                            <input type='text' className="input_field" placeholder='enter item name'onChange={(event)=>{
+                                readValue('name',event.target.value)
+                            }} defaultValue={itemData?.name}/>
+    
+                            <input type='number' className="input_field" placeholder='enter quantity'onChange={(event)=>{
+                                readValue('quantity',event.target.value)
+                            }} defaultValue={itemData?.quantity}/>
+    
+                            <input type='number' className="input_field" placeholder='enter price'onChange={(event)=>{
+                                readValue('price',event.target.value)
+                            }} defaultValue={itemData?.price}/>
+    
+                            <input className='input_field' type='text' placeholder='enter item description'  required onChange={(event)=>{
+                                    readValue('description',event.target.value)
+                                }} defaultValue={itemData?.description}/>
+    
+                            <input className='input_field' type='file' placeholder='enter item pic'  required onChange={(event)=>{
+                                readValue('picture',event.target.files[0])
+                            }} />
+    
+                            <div className='btns_restaurant'>
+                                <button type="button" onClick={()=>{
+                                    updateProfile(itemData)
+                                }}>Update</button>
+    
+                            </div>
+    
+                        </form>
+                    </div>
+               </div>
+    
+                ):null
+            }
+
             <Header/>
             <div className="allitems">
                 <div className='all_items'>
                     <h3>Your Restaurant items</h3>
-                    <Link to='/createitem'><button>additems</button></Link>
+                    <Link to='/createitem'><button>add more</button></Link>
                 </div>
                     <div className='item_container'>
                         
@@ -68,8 +214,12 @@ function Allitems()
                                                 </div>
 
                                                 <div className='feature_buttons'>
-                                                    <button>edit</button>
-                                                    <button>delete</button>
+                                                    <button onClick={()=>{
+                                                        setItemDetails(items)
+                                                    }}>edit</button>
+                                                    <button onClick={()=>{
+                                                        deleteItem(items)
+                                                    }}>delete</button>
                                                 </div>
                                             </div>
 

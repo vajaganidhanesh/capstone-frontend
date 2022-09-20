@@ -75,9 +75,9 @@ textarea::placeholder{
     align-items: center;
 }
 
-button:active{
+/* button:active{
     transform: scale(1.4);
-}
+} */
 
 .signup_footer{
     display: flex;
