@@ -1,18 +1,23 @@
+import '../pageCSS/menu.css'
 import { useEffect,useRef, useState } from "react"
 import Footer from "../components/footer"
 import Header from "../components/header"
+import { useNavigate } from 'react-router-dom';
 
 function Menu()
 {
 
     let loginDetails = useRef(JSON.parse(localStorage.getItem('rest_login_details')));
-    let [items,setItems] = useState([])
+    let [items,setItems] = useState([]);
+    let [cartItems,setCartItems] = useState([])
+    let navigate = useNavigate()
+  
 
     useEffect(()=>{
         fetch('http://localhost:8000/items/allitems',{
             headers:{
                 "authorization":`Bearer ${loginDetails.current.token}`
-            }
+            },
         })
         .then((res)=>res.json())
         .then((data=>{
@@ -28,13 +33,53 @@ function Menu()
         })
     },[])
 
+    
+    function addToCart(product)
+    {   
+        let itemdata = {...product}
+        let cartItem = {
+
+            cartItems:{
+                item : itemdata._id,
+                quantity : itemdata.quantity,
+                price : itemdata.price
+            }
+        }
+
+        console.log(cartItem);
+        
+        fetch(`http://localhost:8000/items/addtocart/${loginDetails.current.userid}`,{
+            method:'POST',
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`,
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(cartItem)
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+
+            console.log(data);
+            setCartItems(data.cart.cartItems)
+        })
+
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+        console.log(cartItems);
     return(
         <>
             <Header/>
             <div className="allitems">
-                <div className='all_items'>
+                <div className='all_items menu_bar'>
                     <h3>All Items</h3>
-                    
+                    <div className='cart_section'>
+                        <i className="fa-sharp fa-solid fa-cart-shopping" onClick={()=>{
+                            navigate("/cart")
+                        }}></i>
+                        {/* <span>{cartItems}</span> */}
+                    </div>
                 </div>
                     <div className='item_container'>
                         
@@ -69,7 +114,7 @@ function Menu()
 
                                             
                                                 <button onClick={()=>{
-                                                    // setItemDetails(items)
+                                                     addToCart(items)
                                                 }}>Add to cart</button>
                                                 
                                             

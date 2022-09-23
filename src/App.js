@@ -14,6 +14,7 @@ import UserLogin from './pages/userLogin';
 import CreateItem from './pages/createItem';
 import Allitems from './pages/allitems';
 import Menu from './pages/menu';
+import Cart from './pages/cart';
 
 function App() {
   return (
@@ -32,7 +33,9 @@ function App() {
             <Route path='/createitem' element={<CreateItem/>}/>
             <Route path='/allitems' element={<Allitems/>}/>
             <Route path='/menu' element={<Menu/>}/>
+            <Route path='/cart' element={<Cart/>}/>
 
+        
 
 
           </Routes>

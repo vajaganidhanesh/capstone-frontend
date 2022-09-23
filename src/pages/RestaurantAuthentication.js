@@ -20,7 +20,6 @@ function RestaurantAuthentication()
     function resSignup()
     {
         fetch("http://localhost:8000/restaurant/signup",{
-            method:"POST",
             headers:{
                 "Content-Type":"application/json"
             },
