@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function Menu()
 {
 
-    let loginDetails = useRef(JSON.parse(localStorage.getItem('rest_login_details')));
+    let loginDetails = useRef(JSON.parse(localStorage.getItem('login_details')));
     let [items,setItems] = useState([]);
     let [cartItems,setCartItems] = useState([])
     let navigate = useNavigate()
@@ -36,13 +36,15 @@ function Menu()
     
     function addToCart(product)
     {   
+        // console.log(product);
         let itemdata = {...product}
         let cartItem = {
 
             cartItems:{
                 item : itemdata._id,
                 quantity : itemdata.quantity,
-                price : itemdata.price
+                price : itemdata.price,
+                restaurant:itemdata.restaurant._id
             }
         }
 
@@ -61,6 +63,7 @@ function Menu()
 
             console.log(data);
             setCartItems(data.cart.cartItems)
+            // navigate('/cart')
         })
 
         .catch((err)=>{
@@ -74,11 +77,17 @@ function Menu()
             <div className="allitems">
                 <div className='all_items menu_bar'>
                     <h3>All Items</h3>
-                    <div className='cart_section'>
-                        <i className="fa-sharp fa-solid fa-cart-shopping" onClick={()=>{
-                            navigate("/cart")
-                        }}></i>
-                        {/* <span>{cartItems}</span> */}
+
+                    <div className='cart_header'>
+
+                        <div className='cart_addmore'>your cart</div>
+                        <div className='cart_section'>
+                            <i className="fa-sharp fa-solid fa-cart-shopping" onClick={()=>{
+                                navigate("/cart")
+                            }}></i>
+                            {/* <span>{cartItems}</span> */}
+                        </div>
+
                     </div>
                 </div>
                     <div className='item_container'>

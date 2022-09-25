@@ -56,10 +56,10 @@ function RestaurantLogin()
                             <div className='restaurant_container'>
                                 <form className='restaurant_login_form'>
 
-                                    <input type='text' class="input_field" placeholder='enter admin email'onChange={(event)=>{
+                                    <input type='text' className="input_field" placeholder='enter admin email'onChange={(event)=>{
                                         readValue('email',event.target.value)
                                     }}/>
-                                    <input type='password' class="input_field" placeholder='enter password'onChange={(event)=>{
+                                    <input type='password' className="input_field" placeholder='enter password'onChange={(event)=>{
                                         readValue('password',event.target.value)
                                     }}/>
                                     <div className='btns_restaurant'>

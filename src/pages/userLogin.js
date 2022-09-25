@@ -58,10 +58,10 @@ function UserLogin()
                         <div className='restaurant_container'>
                             <form className='restaurant_login_form'>
 
-                                <input class="input_field" type='text' placeholder='enter name or email' onChange={(event)=>{
+                                <input className="input_field" type='text' placeholder='enter name or email' onChange={(event)=>{
                                     readValue('email',event.target.value)
                                 }}/>
-                                <input class="input_field" type='password' placeholder='enter password' onChange={(event)=>{
+                                <input className="input_field" type='password' placeholder='enter password' onChange={(event)=>{
                                     readValue('password',event.target.value)
                                 }}/>
                                 <div className='btns_restaurant'>
