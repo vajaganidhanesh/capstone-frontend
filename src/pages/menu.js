@@ -92,7 +92,7 @@ function Menu()
                                 setItemconfirm(false)
 
                             }}>
-                                <i class="fa-solid fa-xmark"></i>
+                                <i className="fa-solid fa-xmark"></i>
                             </div>
                             <h3 >
                                 Item added Successfully
