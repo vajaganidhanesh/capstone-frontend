@@ -83,6 +83,13 @@ function Cart()
     return(
         <>
             <Header/>
+            
+                <div className='item_confirmation'>
+
+                        <div className='item_model'></div>
+
+                    </div>
+
                 <div className='cart_container'>
 
                     <div className='all_items menu_bar'>

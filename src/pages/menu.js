@@ -10,6 +10,7 @@ function Menu()
     let loginDetails = useRef(JSON.parse(localStorage.getItem('login_details')));
     let [items,setItems] = useState([]);
     let [cartItems,setCartItems] = useState([])
+    let [itemconfirm,setItemconfirm] = useState(false)
     let navigate = useNavigate()
   
 
@@ -36,7 +37,7 @@ function Menu()
     
     function addToCart(product)
     {   
-        // console.log(product);
+        
         let itemdata = {...product}
         let cartItem = {
 
@@ -63,16 +64,37 @@ function Menu()
 
             console.log(data);
             setCartItems(data.cart.cartItems)
-            // navigate('/cart')
         })
 
         .catch((err)=>{
             console.log(err);
         })
     }
-        console.log(cartItems);
+    function ItemConfirmation()
+    {
+        setItemconfirm(true)
+
+    }
     return(
         <>
+            {
+                itemconfirm===true?(
+                    <div className='update_item'onClick={()=>{
+                        setItemconfirm(false)
+                    }}>
+
+                        <div className='confirmation_card'onClick={(e)=>{
+                                    e.stopPropagation();
+                                }}>
+                            <div>
+                                item added into the cart
+                            </div>
+                        </div>
+
+                    </div>
+                ):null
+            }
+
             <Header/>
             <div className="allitems">
                 <div className='all_items menu_bar'>
@@ -124,6 +146,7 @@ function Menu()
                                             
                                                 <button onClick={()=>{
                                                      addToCart(items)
+                                                    ItemConfirmation()
                                                 }}>Add to cart</button>
                                                 
                                             
