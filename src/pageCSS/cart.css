@@ -1,6 +1,6 @@
 .cart_container{
     width: 100%;
-    height:auto;
+    min-height:100vh;
     background-color:white;
 }
 
@@ -70,4 +70,20 @@
     display: flex;
     column-gap: 10px;
     padding-top: 20px;
+}
+
+/* if cart is empty then */
+
+.cart_items_image{
+    width: 50%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.cart_items_image > img{
+    width: 100%;
+    height: 70%;
 }
