@@ -63,15 +63,16 @@ function Menu()
         .then((data)=>{
 
             console.log(data);
-            setCartItems(data.cart.cartItems)
         })
 
         .catch((err)=>{
             console.log(err);
         })
     }
-    function ItemConfirmation()
+    function ItemConfirmation(itemData)
     {
+        console.log(itemData);
+        setCartItems(itemData)
         setItemconfirm(true)
 
     }
@@ -86,11 +87,36 @@ function Menu()
                         <div className='confirmation_card'onClick={(e)=>{
                                     e.stopPropagation();
                                 }}>
-                            <div>
-                                item added into the cart
-                            </div>
-                        </div>
 
+                            <div className='closing_model' onClick={()=>{
+                                setItemconfirm(false)
+
+                            }}>
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <h3 >
+                                Item added Successfully
+                            </h3>
+
+                            <div className='selected_item_details'>
+                                
+                                <div className='selected_item_details_img_con'>
+                                    <img src={cartItems.picture[0]} alt="item_img"/>
+                                </div>
+
+                                <div className='selected_item_details_det_con'>
+                                    <div> <h1>{cartItems.name}</h1></div>
+                                    <div><span>Quantity : </span>{cartItems.quantity}</div>
+                                    <div><span>Price : </span>{cartItems.price}</div>
+                                    <div><span>Restaurant : </span>{cartItems.restaurant.name}</div>
+                                    <div><span>Description : </span>{cartItems.description}</div>
+                                </div>
+                            </div>
+                            <button onClick={()=>{
+                                navigate('/cart')
+                            }}>Your cart</button>
+                        </div>
+                       
                     </div>
                 ):null
             }
@@ -131,13 +157,14 @@ function Menu()
                                             </div>
                                             <div className='item_quantity'>
 
-                                                    <div>Quantity <span>{items.quantity} packs</span></div>
+                                                <div>Quantity <span>{items.quantity} packs</span></div>
 
                                                 <div className='item_price'>
                                                     Price <span>{items.price} /-</span>
                                                 </div>
 
                                             </div>
+
                                             <div>Stock left <span>{items.stock}</span></div>
 
                                             <div>Ingredients <span>{items.description}</span> </div>
@@ -146,7 +173,7 @@ function Menu()
                                             
                                                 <button onClick={()=>{
                                                      addToCart(items)
-                                                    ItemConfirmation()
+                                                    ItemConfirmation(items)
                                                 }}>Add to cart</button>
                                                 
                                             
