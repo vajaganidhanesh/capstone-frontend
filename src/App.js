@@ -15,6 +15,8 @@ import CreateItem from './pages/createItem';
 import Allitems from './pages/allitems';
 import Menu from './pages/menu';
 import Cart from './pages/cart';
+import Protect from './pages/protect';
+
 
 function App() {
   return (
@@ -22,18 +24,40 @@ function App() {
       <BrowserRouter>
           <Routes>
             <Route path='/header' element={<Header/>} />
+            
             <Route path='/footer' element={<Footer/>} />
+
             <Route path='/' element={<LandingPage/>} />
+
             <Route path='/landingpage' element={<LandingPage/>} />
+
             <Route path='/restaurants' element={<RestaurantList/>}/>
+
             <Route path='/userAuthentication' element={<UserAuthentication/>}/>
+
             <Route path='/restaurantAuthentication' element={<RestaurantAuthentication/>}/>
+
             <Route path='/restaurantLogin' element={<RestaurantLogin/>}/>
+
             <Route path='/userlogin' element={<UserLogin/>}/>
-            <Route path='/createitem' element={<CreateItem/>}/>
-            <Route path='/allitems' element={<Allitems/>}/>
+
+            <Route path='/createitem' element={
+
+            <Protect>
+              <CreateItem/>
+            </Protect>}/>
+
+            <Route path='/allitems' element={
+            <Protect>
+              <Allitems/>
+            </Protect>}/>
+
             <Route path='/menu' element={<Menu/>}/>
-            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/cart' element={
+              
+            <Protect>
+              <Cart/>
+            </Protect>}/>
 
         
 
