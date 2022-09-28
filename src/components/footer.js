@@ -38,6 +38,7 @@ function Footer()
                         <li className="footer_link">SUBSCRIBE FOR DISCOUNTS</li>
                         <li>
                             <ul className="socialmedia_icons">
+
                                 <li className="footer_link_a"><i className="fa-brands fa-facebook"></i></li>
                                 <li className="footer_link_a"> <i className="fa-brands fa-instagram"></i></li>
                                 <li className="footer_link_a"><i className="fa-brands fa-twitter"></i></li>

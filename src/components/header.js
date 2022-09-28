@@ -17,7 +17,7 @@ function Header()
                         <ul className="nav_links" id="nav_links">
                             <Link to="/menu"><li className="nav_link">menu</li></Link>
 
-                            <Link to="/</ul>restaurants"><li className="nav_link">restaurants</li></Link>
+                            <Link to="/restaurants"><li className="nav_link">restaurants</li></Link>
 
                             <Link to=""><li className="nav_link">items</li></Link>
 

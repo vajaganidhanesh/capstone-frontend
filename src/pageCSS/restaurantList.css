@@ -1,0 +1,109 @@
+.restaurantList_container{
+    margin-top: 1px;
+    width: 100%;
+    min-height: 90vh;
+    background-color: #F3F5FD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 10px 0px;
+}
+
+.restaurant_details_container{
+    width: 88%;
+    margin-left: 2%;
+    height: auto;
+    background-color: #fff;
+    padding: 10px;
+    padding-left: 30px;
+    border-radius: 5px;
+}
+
+.rest_heading{
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: .11rem;
+}
+
+.rest_details{
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+}
+.rest_details > button{
+
+    font-family: regular;
+    font-size: 12px;
+    letter-spacing: .2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.rest_details > button:hover{
+    color: #fff;
+    background-color: #0cbc8a6f;
+}
+.header_sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 40px;
+}
+.rest_header_detail{
+    width: 70%;
+}
+.section_rest_cont{
+    width: 100%;
+    /* padding: 10px; */
+    font-size:15px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    column-gap: 10px;
+}
+
+.section_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0cbc8a2b;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.section_img > i{
+    font-size: 20px;
+    color: #0CBC8B;
+}
+
+.section_heading{
+    font-family: regular;
+    /* font-size:13px; */
+    text-transform: capitalize;
+}
+
+.section_option{
+    list-style: none;
+    padding-top: 17px;
+    padding-left: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_option > li{
+    font-family: light;
+    padding: 0px;
+}
+
+.section_option > li {
+    font-family: regular;
+    font-size: 12px;
+}

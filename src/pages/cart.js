@@ -72,8 +72,8 @@ function Cart()
 
                     quantity = quantity + value.cartItems.quantity
                     price = price+value.cartItems.price
-
                     total = {quantity,price}
+                    
                 })
                 console.log(total);
                 setTotalData(total)

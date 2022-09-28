@@ -12,6 +12,8 @@ function Menu()
     let [cartItems,setCartItems] = useState([])
     let [itemconfirm,setItemconfirm] = useState(false)
     let navigate = useNavigate()
+
+    useEffect(()=>{},[])
   
 
     useEffect(()=>{
@@ -84,7 +86,7 @@ function Menu()
                         setItemconfirm(false)
                     }}>
 
-                        <div className='confirmation_card'onClick={(e)=>{
+                        <div className='confirmation_card' onClick={(e)=>{
                                     e.stopPropagation();
                                 }}>
 
@@ -114,7 +116,7 @@ function Menu()
                             </div>
                             <button onClick={()=>{
                                 navigate('/cart')
-                            }}>Your cart</button>
+                            }}>Go to cart</button>
                         </div>
                        
                     </div>
@@ -122,6 +124,7 @@ function Menu()
             }
 
             <Header/>
+
             <div className="allitems">
                 <div className='all_items menu_bar'>
                     <h3>All Items</h3>
@@ -188,6 +191,7 @@ function Menu()
                     </div>
 
             </div>
+            
             <Footer/>
         </>
     )
