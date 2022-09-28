@@ -187,12 +187,12 @@ function Allitems()
             }
 
             <Header/>
-            <div className="allitems">
+            <div className="allitems allitems_main">
                 <div className='all_items'>
                     <h3>Your Restaurant items</h3>
                     <Link to='/createitem'><button>add more</button></Link>
                 </div>
-                    <div className='item_container'>
+                    <div className='item_container all_item_container'>
                         
                         {
                             items.length!==0?

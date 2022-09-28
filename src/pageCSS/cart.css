@@ -1,7 +1,7 @@
 .cart_container{
     width: 100%;
     background-color:#dee8f579;
-    
+    padding-top: 80px;
 }
 
 .cart_main_container{
@@ -10,13 +10,16 @@
     align-items: center;
     min-height:80vh;
 }
-
+.cart_bgc{
+    background-color: #fff!important;
+}
 .cart_header{
     display: flex;
     align-items: center;
     justify-content: center;
     column-gap: 10px;
     position: relative;
+    
 }
 .cart_addmore{
 

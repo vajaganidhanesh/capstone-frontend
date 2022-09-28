@@ -19,11 +19,20 @@ function Header()
 
                             <Link to="/restaurants"><li className="nav_link">restaurants</li></Link>
 
-                            <Link to=""><li className="nav_link">items</li></Link>
-
                             <Link to="/restaurantLogin"><li className="nav_link">admin</li></Link>
 
                             <Link to="/userlogin"><li className="nav_link">user</li></Link>
+
+                            <Link to=""><li className="nav_link">orders</li></Link>
+
+                            <Link to="/cart"><li className="nav_link">
+                                
+                                    <div className="section_img header_img_cart">
+                                      <i className="fa-solid fa-cart-shopping"></i>
+                                      <div className='product_count'>2</div>
+                                    </div>
+                                
+                                </li></Link>
 
                             {/* <i className="fa-solid fa-cart-shopping"></i> */}
                         </ul>

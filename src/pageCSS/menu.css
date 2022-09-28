@@ -1,6 +1,7 @@
 .menu_bar{
     padding: 10px 65px;
     padding-left: 87px;
+  
 }
 .menu_bar > h3{
     font-family: semibold;
@@ -9,7 +10,7 @@
 .cart_section{
     height: 50px;
     width: 50px;
-    background-color: #fff;
+    background-color:  #0cbc8a2b;
     display: flex;
     justify-content: center;
     align-items: center;

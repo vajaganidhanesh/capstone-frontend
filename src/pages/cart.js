@@ -203,7 +203,7 @@ function Cart()
 
                     <div className='cart_container'>
 
-                        <div className='all_items menu_bar'>
+                        {/* <div className='all_items menu_bar'>
                             <h3>Your cart</h3>
 
                             <div className='cart_header'>
@@ -219,7 +219,7 @@ function Cart()
                                     <span className='cart_quantity'>{totalData?.quantity}</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
 
                     <div className='cart_main_container'>

@@ -1,5 +1,5 @@
 .restaurantList_container{
-    margin-top: 1px;
+    /* margin-top: 1px; */
     width: 100%;
     min-height: 90vh;
     background-color: #F3F5FD;
@@ -9,6 +9,7 @@
     flex-direction: column;
     row-gap: 10px;
     padding: 10px 0px;
+    padding-top: 100px;
 }
 
 .restaurant_details_container{

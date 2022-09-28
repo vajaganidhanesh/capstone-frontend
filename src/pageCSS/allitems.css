@@ -1,5 +1,8 @@
 
 /* css for updateitem model */
+.allitems_main{
+    padding-top: 90px;
+}
 .update_item{
     width: 100%;
     height: 100vh;
@@ -33,7 +36,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #DFE6F5;
+    background: #dfe6f5c9;
 }
 
 .item_container{
@@ -46,6 +49,7 @@
     row-gap: 20px;
     padding: 10px;
     padding-left: 6%;
+    padding-top: 100px;
 }
 
 .item_details{
@@ -110,6 +114,14 @@
 .feature_buttons{
     display:flex;
     justify-content: space-between;
+}
+
+.all_item_container{
+    padding-top: 10px;
+    
+    /* flex-direction: column; */
+    /* row-gap: 10px;
+    padding-right: 60px; */
 }
 
 /* css for additems container */
