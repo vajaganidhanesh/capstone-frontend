@@ -25,7 +25,7 @@ function Cart()
 
             if(data.success=true)
             { 
-                console.log(data);
+                console.log(data.data);
                 setItems(data.data)
 
                 let price = null;
@@ -34,12 +34,17 @@ function Cart()
                 
                 data.data.map((value,index)=>{
 
+                    if(value.cartItems.quantity==0 &&value.cartItems.price ==0)
+                    {
+                        removeItem(value)
+                    }
+
                     quantity = quantity + value.cartItems.quantity
                     price = price+value.cartItems.price
 
                     total = {quantity,price}
                 })
-                console.log(total);
+               
                 setTotalData(total)
             }
         }))
@@ -61,7 +66,7 @@ function Cart()
 
             if(data.success=true)
             { 
-                console.log(data);
+                console.log(data.data);
                 setItems(data.data)
 
                 let price = null;
@@ -70,12 +75,17 @@ function Cart()
                 
                 data.data.map((value,index)=>{
 
+                    if(value.cartItems.quantity==0 &&value.cartItems.price ==0)
+                    {
+                        removeItem(value)
+                    }
+
                     quantity = quantity + value.cartItems.quantity
                     price = price+value.cartItems.price
                     total = {quantity,price}
                     
                 })
-                console.log(total);
+               
                 setTotalData(total)
             }   
         }))
@@ -109,6 +119,77 @@ function Cart()
         })
     }
 
+    function addQuantity(product)
+    {   
+        
+        let itemdata = {...product}
+
+        let cartItem = {
+
+            cartItems:{
+                item : itemdata.cartItems.item,
+                quantity : itemdata.itemdetails.quantity,
+                price : itemdata.itemdetails.price,
+                restaurant : itemdata.restaurant._id
+            }
+        }
+        
+        fetch(`http://localhost:8000/items/addtocart/${loginDetails.current.userid}`,{
+            method:'POST',
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`,
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(cartItem)
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+
+            console.log(data);
+            updateui()
+        })
+
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    function subQuantity(product)
+    {   
+        
+        let itemdata = {...product}
+         
+       
+        let cartItem = {
+
+            cartItems:{
+                item : itemdata.cartItems.item,
+                quantity : itemdata.itemdetails.quantity,
+                price : itemdata.itemdetails.price,
+                restaurant : itemdata.restaurant._id
+            }
+        }
+
+        
+        fetch(`http://localhost:8000/items/decreasequantity/${loginDetails.current.userid}`,{
+            method:'POST',
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`,
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(cartItem)
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+
+            console.log(data);
+            updateui()
+        })
+
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
     return(
         <>
             <Header/>
@@ -164,11 +245,15 @@ function Cart()
                                                     <div className='cart_item_details'><span >Dish from </span>{value.restaurant.name}</div>
                                                     
                                                     <div className='cart_features'>
-
-                                                        <button>addmore</button>
-                                                        <button onClick={()=>{
+                                                        <div className="section_img" onClick={()=>{
+                                                            addQuantity(value)
+                                                        }}> <i class="fa-solid fa-plus"></i></div>
+                                                        <div className="section_img" onClick={()=>{
+                                                            subQuantity(value)
+                                                        }}><i class="fa-solid fa-minus"></i></div>
+                                                        <div className="section_img remove_button"  onClick={()=>{
                                                             removeItem(value)
-                                                        }}>remove</button>
+                                                        }}>remove</div>
 
                                                     </div>
                                                 </div>
@@ -205,7 +290,9 @@ function Cart()
 
                                             <div>Payable amount : {totalData.price}</div>
                                             
-                                            <button>Place Order</button>
+                                            <div className="section_img remove_button"  onClick={()=>{
+                                                            
+                                            }}>Place Order</div>
                                         </div>
                                     </div>
                                 ):null

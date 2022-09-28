@@ -64,13 +64,13 @@ function UserLogin()
                                 <input className="input_field" type='password' placeholder='enter password' onChange={(event)=>{
                                     readValue('password',event.target.value)
                                 }}/>
-                                <div className='btns_restaurant'>
+                                {/* <div className='btns_restaurant'> */}
 
                                     <button type="button" onClick={()=>{
                                         loginDetails()
                                     }}>Login</button>
 
-                                </div>
+                                {/* </div> */}
 
                             </form>
 
