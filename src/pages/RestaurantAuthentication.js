@@ -40,10 +40,10 @@ function RestaurantAuthentication()
                     <div className='restaurant_image landpage_image'>
                         <img src="../assets/Upload.svg" alt='uploadimage'/>
                     </div>
-                    <div className='restaurant_authentication'>
-                        <div className='landpage_container'>
+                    <div className='restaurant_authentication rest_auth_form_container'>
+                        <div className='landpage_container' >
                     
-                            <h4>Register your restaurant into Capstone</h4>
+                            <h4>Register your restaurant </h4>
                             <div className='restaurant_container'>
                                 <form className='restaurant_login_form'>
 
@@ -86,7 +86,7 @@ function RestaurantAuthentication()
 
                                     <div className='btns_restaurant'>
 
-                                        <button class="button" type='button' onClick={()=>{
+                                        <button class="button" className="button_iw" type='button' onClick={()=>{
                                             resSignup()
                                         }}>signup</button>
 

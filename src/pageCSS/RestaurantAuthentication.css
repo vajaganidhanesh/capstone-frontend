@@ -5,13 +5,19 @@
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
+    padding-right: 40px;
+    padding-top: 100px;
 }
 .restaurant_image{
     width: 50%;
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+}
+
+.restaurant_image > img{
+    height: 75%;
 }
 .restaurant_authentication{
    
@@ -25,6 +31,7 @@
     row-gap: 10px;
     border-radius: 10px;
 }
+
 
 .restaurant_login_form{
     width: 100%;
@@ -45,8 +52,9 @@
     outline:none;
     padding: 10px 10px;
     width: 100%;
-    border:1px solid black;
-    background:#F3F5FD;
+    border:none;
+    background:#fff;
+    border-radius: 10px;
     font-family: regular;
 }
 input::placeholder{
@@ -72,7 +80,13 @@ textarea::placeholder{
     width: 100%;
     display: flex;
     justify-content:center;
+    flex-direction: column;
     align-items: center;
+}
+
+.button_iw{
+    width: 100%;
+    border-radius: 10px;
 }
 
 /* button:active{

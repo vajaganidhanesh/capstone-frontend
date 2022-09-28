@@ -52,7 +52,7 @@ function RestaurantLogin()
                     </div>
                 <div className='restaurant_authentication restaurant_auth_login'>
                     <div className='landpage_container'>
-                        <h4>Please Login as Restaurant Admin</h4>
+                        <h4>Restaurant Admin</h4>
                             <div className='restaurant_container'>
                                 <form className='restaurant_login_form'>
 
@@ -64,7 +64,7 @@ function RestaurantLogin()
                                     }}/>
                                     <div className='btns_restaurant'>
 
-                                        <button type="button" onClick={()=>{
+                                        <button type="button" className="button_iw" onClick={()=>{
                                             restaurantLogin()
                                         }}>Login</button>
 

@@ -67,7 +67,7 @@ function CreateItem()
 
                                     <input className='input_field' type='number' placeholder='enter food quantity' required onChange={(event)=>{
                                     readValue('quantity',event.target.value)
-                                    }}/>
+                                    }} defaultValue={1}/>
 
                                     
                                     <input className='input_field' type='number' placeholder='enter price' required onChange={(event)=>{

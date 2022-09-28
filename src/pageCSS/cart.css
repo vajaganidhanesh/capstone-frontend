@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height:80vh;
+    min-height:90vh;
 }
 .cart_bgc{
     background-color: #fff!important;

@@ -3,13 +3,13 @@ import '../pageCSS/cart.css'
 import { useEffect,useRef, useState } from "react"
 import Footer from "../components/footer";
 import Header from "../components/header";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Cart()
 {
 
     let loginDetails = useRef(JSON.parse(localStorage.getItem('login_details')));
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
     let [items,setItems]=useState([]);
     let [totalData,setTotalData] = useState({})
 
@@ -34,9 +34,9 @@ function Cart()
                 
                 data.data.map((value,index)=>{
 
-                    if(value.cartItems.quantity==0 &&value.cartItems.price ==0)
+                    if(value.cartItems.quantity===0 &&value.cartItems.price ===0)
                     {
-                        removeItem(value)
+                          removeItem(value)
                     }
 
                     quantity = quantity + value.cartItems.quantity
@@ -75,7 +75,7 @@ function Cart()
                 
                 data.data.map((value,index)=>{
 
-                    if(value.cartItems.quantity==0 &&value.cartItems.price ==0)
+                    if(value.cartItems.quantity===0 &&value.cartItems.price ===0)
                     {
                         removeItem(value)
                     }
@@ -192,7 +192,7 @@ function Cart()
     }
     return(
         <>
-            <Header/>
+            <Header message={totalData}/>
             
                 <div className='item_confirmation'>
 
@@ -247,10 +247,10 @@ function Cart()
                                                     <div className='cart_features'>
                                                         <div className="section_img" onClick={()=>{
                                                             addQuantity(value)
-                                                        }}> <i class="fa-solid fa-plus"></i></div>
+                                                        }}> <i className="fa-solid fa-plus"></i></div>
                                                         <div className="section_img" onClick={()=>{
                                                             subQuantity(value)
-                                                        }}><i class="fa-solid fa-minus"></i></div>
+                                                        }}><i className="fa-solid fa-minus"></i></div>
                                                         <div className="section_img remove_button"  onClick={()=>{
                                                             removeItem(value)
                                                         }}>remove</div>

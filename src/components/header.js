@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 
-function Header()
+function Header(props)
 {
+
+    console.log(props);
+
+    let cartdata = {props}
+    console.log(cartdata);
     return(
         <>
             <header id="header" className="header ">

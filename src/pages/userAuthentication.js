@@ -64,7 +64,7 @@ function UserAuthentication()
 
                                 <div className='btns_restaurant'>
 
-                                    <button type="button" onClick={()=>{
+                                    <button type="button" className="button_iw" onClick={()=>{
                                         signup()
                                     }}>signup</button>
 

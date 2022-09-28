@@ -15,33 +15,47 @@ function UserLogin()
 
     function loginDetails(){
 
-        fetch("http://localhost:8000/user/login",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify(userCred)
-        })
+        if(userCred.email !== undefined || userCred.password !== undefined)
 
-        .then((response)=>response.json())
-        .then((responseData)=>{
+        {
 
-            if(responseData.success===true)
-            {
+                fetch("http://localhost:8000/user/login",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(userCred)
+            })
 
-                console.log(responseData);
-                localStorage.setItem("login_details",JSON.stringify(responseData));
-                navigate('/menu')
+            .then((response)=>response.json())
+            .then((responseData)=>{
+
+                if(responseData.success===true)
+                {
+
+                    console.log(responseData);
+                    localStorage.setItem("login_details",JSON.stringify(responseData));
+                    navigate('/menu')
+                    
+                }
+                else{
+
+                }
                 
-            }
-            else{
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
 
-            }
-            
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
+        }
+
+        else
+        {
+
+
+        }
+
+        
     }
     return(
         <>
@@ -61,16 +75,19 @@ function UserLogin()
                                 <input className="input_field" type='text' placeholder='enter name or email' onChange={(event)=>{
                                     readValue('email',event.target.value)
                                 }}/>
+
                                 <input className="input_field" type='password' placeholder='enter password' onChange={(event)=>{
                                     readValue('password',event.target.value)
                                 }}/>
-                                {/* <div className='btns_restaurant'> */}
+                                <div className='btns_restaurant'>
+                                <small>hello</small>
+                                    <button type="button" className="button_iw" onClick={()=>{
 
-                                    <button type="button" onClick={()=>{
                                         loginDetails()
+                                        
                                     }}>Login</button>
 
-                                {/* </div> */}
+                                </div>
 
                             </form>
 
