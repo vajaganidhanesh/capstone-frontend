@@ -81,7 +81,7 @@ function Allitems()
        
     }
 
-    function updateProfile(itemData)
+    function updateData(itemData)
     {
         fetch(`http://localhost:8000/items/update/${itemData._id}`,{
             method:'PUT',
@@ -174,7 +174,7 @@ function Allitems()
     
                             <div className='btns_restaurant'>
                                 <button type="button" onClick={()=>{
-                                    updateProfile(itemData)
+                                    updateData(itemData)
                                 }}>Update</button>
     
                             </div>
