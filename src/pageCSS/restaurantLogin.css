@@ -24,3 +24,13 @@
     font-family: semibold;
     color: #292A2E;
 }
+
+/* css for userlogin */
+
+.comments{
+    display: none;
+    color:red;
+    font-size: 13px;
+    text-align: center;
+    font-family: regular;
+}

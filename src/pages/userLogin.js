@@ -39,7 +39,8 @@ function UserLogin()
                     
                 }
                 else{
-
+                    document.getElementById("cmts").style.display="block"
+                    document.getElementById("cmts").innerText="Incorrect password or email"
                 }
                 
             })
@@ -51,7 +52,7 @@ function UserLogin()
 
         else
         {
-
+            document.getElementById("cmts").style.display="block"
 
         }
 
@@ -72,15 +73,19 @@ function UserLogin()
                         <div className='restaurant_container'>
                             <form className='restaurant_login_form'>
 
-                                <input className="input_field" type='text' placeholder='enter name or email' onChange={(event)=>{
+                                <input className="input_field" type='text' placeholder='enter name or email' required onChange={(event)=>{
                                     readValue('email',event.target.value)
                                 }}/>
 
-                                <input className="input_field" type='password' placeholder='enter password' onChange={(event)=>{
-                                    readValue('password',event.target.value)
-                                }}/>
+                                <div className="button_iw">
+                                    <input className="input_field" type='password' placeholder='enter password' required onChange={(event)=>{
+                                        readValue('password',event.target.value)
+                                    }}/>
+                                    <small id="cmts" className="comments">please provide input values</small>
+                                </div>
+
                                 <div className='btns_restaurant'>
-                                <small>hello</small>
+                               
                                     <button type="button" className="button_iw" onClick={()=>{
 
                                         loginDetails()

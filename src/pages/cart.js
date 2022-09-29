@@ -190,6 +190,48 @@ function Cart()
             console.log(err);
         })
     }
+
+    function placeOrder(value)
+    {
+        let data = {...value};
+
+        let cart_id = null;
+        items.map((value,index)=>{
+            cart_id = value._id
+        })
+
+        let orderData = {
+            orderItems:{
+                cartid:cart_id,
+                quantity : data.quantity,
+                price : data.price,
+            }
+        }
+
+        console.log(orderData);
+
+        fetch(`http://localhost:8000/items/orderdetails/${loginDetails.current.userid}`,{
+            method:"POST",
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`,
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(orderData)
+        })
+
+        .then((res)=>res.json())
+        .then((data)=>{
+
+            console.log(data);
+            // updateui()
+        })
+
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+
     return(
         <>
             <Header message={totalData}/>
@@ -202,25 +244,6 @@ function Cart()
 
 
                     <div className='cart_container'>
-
-                        {/* <div className='all_items menu_bar'>
-                            <h3>Your cart</h3>
-
-                            <div className='cart_header'>
-
-                                <div className='cart_addmore'>Add more</div>
-
-                                <div className='cart_section'>
-
-                                    <i className="fa-sharp fa-solid fa-cart-shopping" onClick={()=>{
-                                            navigate("/menu")
-                                        }}></i>
-
-                                    <span className='cart_quantity'>{totalData?.quantity}</span>
-                                </div>
-                            </div>
-                        </div> */}
-
 
                     <div className='cart_main_container'>
                         <div className='cart_item_container'>
@@ -291,7 +314,7 @@ function Cart()
                                             <div>Payable amount : {totalData.price}</div>
                                             
                                             <div className="section_img remove_button"  onClick={()=>{
-                                                            
+                                                            placeOrder(totalData)
                                             }}>Place Order</div>
                                         </div>
                                     </div>

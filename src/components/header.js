@@ -1,20 +1,23 @@
 // import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 
 function Header(props)
 {
 
-    console.log(props);
+    let navigate = useNavigate();
+    // console.log(props);
 
     let cartdata = {props}
-    console.log(cartdata);
+    // console.log(cartdata);
     return(
         <>
             <header id="header" className="header ">
                 <nav className="navbar" id="navbar">
                     <div className="logo_section">
-                        <img className='logo' src="../assets/capstone_logo.svg" alt='logo_image'/>
+                        <img className='logo' src="../assets/capstone_logo.svg" alt='logo_image' onClick={()=>{
+                            navigate('/landingpage')
+                        }}/>
 
                         <div className="mobile">
                             {/* <i className="fa-solid fa-bars" id="icon" onClick="navbar()"></i> */}
