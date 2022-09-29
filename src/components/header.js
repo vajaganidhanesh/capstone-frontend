@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 
@@ -14,7 +14,8 @@ function Header(props)
             <header id="header" className="header ">
                 <nav className="navbar" id="navbar">
                     <div className="logo_section">
-                        <Link to={'/landingpage'}><p className="logo">Capstone</p></Link>
+                        <img className='logo' src="../assets/capstone_logo.svg" alt='logo_image'/>
+
                         <div className="mobile">
                             {/* <i className="fa-solid fa-bars" id="icon" onClick="navbar()"></i> */}
                         </div>
