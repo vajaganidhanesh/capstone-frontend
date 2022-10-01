@@ -19,19 +19,30 @@ function RestaurantAuthentication()
     }
     function resSignup()
     {
-        fetch("http://localhost:8000/restaurant/signup",{
+        if(admin.name!==undefined && admin.email!==undefined && admin.password!==undefined 
+            && admin.mobile!==undefined && admin.address!==undefined && admin.opening_time!==undefined && admin.closing_time!==undefined)
+        {
+
+            fetch("http://localhost:8000/restaurant/signup",{
+            method:"POST",
             headers:{
                 "Content-Type":"application/json"
             },
             body:JSON.stringify(admin)
-        })
-        .then((response)=>response.json())
-        .then((data)=>{
-            console.log(data);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
+            })
+            .then((response)=>response.json())
+            .then((data)=>{
+                console.log(data);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+
+        }
+        else
+        {
+            document.getElementById("cmt").style.display="block"
+        }
     }
     return(
         <>   
@@ -73,15 +84,19 @@ function RestaurantAuthentication()
                                         readValue("address",event.target.value)
                                     }}></textarea>
                                     
+                                
+                                    <div className="button_iw">
+                                        <div className='input_block_one'>
 
-                                    <div className='input_block_one'>
+                                            <input class="input_field" type='text' placeholder='enter opening time' onChange={(event)=>{
+                                                readValue("opening_time",event.target.value)
+                                            }}/>
+                                            <input class="input_field" type='text' placeholder='enter closing time'onChange={(event)=>{
+                                                readValue("closing_time",event.target.value)
+                                            }}/>
 
-                                        <input class="input_field" type='text' placeholder='enter opening time' onChange={(event)=>{
-                                            readValue("opening_time",event.target.value)
-                                        }}/>
-                                        <input class="input_field" type='text' placeholder='enter closing time'onChange={(event)=>{
-                                            readValue("closing_time",event.target.value)
-                                        }}/>
+                                            </div>
+                                        <small id="cmt" className="comments">please provide input values</small>
                                     </div>
 
                                     <div className='btns_restaurant'>

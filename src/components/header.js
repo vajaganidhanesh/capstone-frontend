@@ -8,7 +8,7 @@ function Header(props)
     let navigate = useNavigate();
     // console.log(props);
 
-    let cartdata = {props}
+    // let cartdata = {props}
     // console.log(cartdata);
     return(
         <>
@@ -33,7 +33,7 @@ function Header(props)
 
                             <Link to="/userlogin"><li className="nav_link">user</li></Link>
 
-                            <Link to=""><li className="nav_link">orders</li></Link>
+                            <Link to="/order"><li className="nav_link">orders</li></Link>
 
                             <Link to="/cart"><li className="nav_link">
                                 

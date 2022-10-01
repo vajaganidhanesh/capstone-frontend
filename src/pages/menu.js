@@ -25,7 +25,7 @@ function Menu()
         .then((res)=>res.json())
         .then((data=>{
 
-            if(data.success=true)
+            if(data.success=true )
             { 
                 console.log(data);
                 setItems(data.items)
@@ -33,6 +33,7 @@ function Menu()
         }))
         .catch((err)=>{
             console.log(err);
+            navigate('/userlogin')
         })
     },[])
 

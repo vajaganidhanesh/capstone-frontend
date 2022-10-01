@@ -68,6 +68,19 @@
     font-size: .9em;
 }
 
+.nav_link::after{
+    display: block;
+    content:" ";
+    border-bottom: 3px solid #0CBC8B;
+    padding-bottom: 1%;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+.nav_link:hover::after{
+    transform: scaleX(1);
+}
+
 a{
     text-decoration: none;
     color: black;

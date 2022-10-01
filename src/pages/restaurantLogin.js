@@ -19,29 +19,38 @@ function RestaurantLogin()
 
     function restaurantLogin()
     {
-        fetch("http://localhost:8000/restaurant/login",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify(restaurantCred)
-        })
-        .then((response)=>response.json())
-        .then((responseData)=>{
-            if(responseData.success===true)
-            {
-                console.log(responseData);
-                localStorage.setItem("rest_login_details",JSON.stringify(responseData));
-                navigate('/allitems')
-            }
-            else{
-
-            }
+        if(restaurantCred.email!==undefined && restaurantCred.password!==undefined)
+        {
             
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
+            fetch("http://localhost:8000/restaurant/login",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(restaurantCred)
+            })
+            .then((response)=>response.json())
+            .then((responseData)=>{
+                if(responseData.success===true)
+                {
+                    console.log(responseData);
+                    localStorage.setItem("rest_login_details",JSON.stringify(responseData));
+                    navigate('/allitems')
+                }
+                else{
+                    document.getElementById("cmt").style.display="block"
+                    document.getElementById("cmt").innerText="Incorrect password or email"
+                }
+                
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        }
+        else
+        {
+            document.getElementById("cmt").style.display="block"
+        }
     }
     return(
         <>
@@ -59,9 +68,14 @@ function RestaurantLogin()
                                     <input type='text' className="input_field" placeholder='enter admin email'onChange={(event)=>{
                                         readValue('email',event.target.value)
                                     }}/>
-                                    <input type='password' className="input_field" placeholder='enter password'onChange={(event)=>{
-                                        readValue('password',event.target.value)
-                                    }}/>
+
+                                    <div className="button_iw">
+                                        <input type='password' className="input_field" placeholder='enter password'onChange={(event)=>{
+                                            readValue('password',event.target.value)
+                                        }}/>
+                                        <small id="cmt" className="comments">please provide input values</small>
+                                    </div>
+                                        
                                     <div className='btns_restaurant'>
 
                                         <button type="button" className="button_iw" onClick={()=>{

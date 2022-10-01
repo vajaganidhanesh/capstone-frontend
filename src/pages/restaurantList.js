@@ -41,12 +41,12 @@ function RestaurantList()
 
                         return(
 
-                            <>
                             
-                                <div className="restaurant_details_container">
+                            
+                                <div className="restaurant_details_container" key={index}>
                                         <h2 className="rest_heading">{value.name}</h2>
                                     
-                                    <div className="rest_details">
+                                    <div className="rest_details" >
 
                                             <div className="rest_header_detail">special about restaurant</div>
                                             
@@ -54,7 +54,7 @@ function RestaurantList()
                                                 <div className="section_rest_cont">
                                                     
                                                         <div className="section_img">
-                                                            <i class="fa-solid fa-clock"></i>
+                                                            <i className="fa-solid fa-clock"></i>
                                                         </div>
 
                                                         <ul className="section_option">
@@ -69,7 +69,7 @@ function RestaurantList()
                                                 <div className="section_rest_cont">
                                                     
                                                         <div className="section_img">
-                                                        <i class="fa-solid fa-envelope"></i>
+                                                        <i className="fa-solid fa-envelope"></i>
                                                         </div>
 
                                                         <ul className="section_option">
@@ -83,7 +83,7 @@ function RestaurantList()
                                                 <div className="section_rest_cont">
                                                     
                                                     <div className="section_img">
-                                                    <i class="fa-solid fa-phone"></i>
+                                                    <i className="fa-solid fa-phone"></i>
                                                     </div>
 
                                                     <ul className="section_option">
@@ -96,7 +96,7 @@ function RestaurantList()
                                                 <div className="section_rest_cont">
                                                     
                                                     <div className="section_img">
-                                                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                                        <i className="fa-sharp fa-solid fa-location-dot"></i>
                                                     </div>
 
                                                     <ul className="section_option">
@@ -113,7 +113,7 @@ function RestaurantList()
                                     </div>
                                 </div>
                             
-                            </>
+                            
                         )
                     })
                 }

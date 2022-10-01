@@ -3,8 +3,6 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 // custom routing components
 
-import Header from './components/header';
-import Footer from './components/footer';
 import LandingPage from './pages/landingPage';
 import RestaurantList from './pages/restaurantList';
 import UserAuthentication from './pages/userAuthentication';
@@ -16,16 +14,13 @@ import Allitems from './pages/allitems';
 import Menu from './pages/menu';
 import Cart from './pages/cart';
 import Protect from './pages/protect';
-
+import Order from './pages/order';
 
 function App() {
   return (
    <>
       <BrowserRouter>
           <Routes>
-            <Route path='/header' element={<Header/>} />
-            
-            <Route path='/footer' element={<Footer/>} />
 
             <Route path='/' element={<LandingPage/>} />
 
@@ -58,6 +53,12 @@ function App() {
             <Protect>
               <Cart/>
             </Protect>}/>
+
+            <Route path='/order' element={
+              
+              <Protect>
+                <Order/>
+              </Protect>}/>
 
         
 
