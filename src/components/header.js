@@ -1,15 +1,37 @@
-// import { useState } from 'react';
+import { useEffect,useRef,useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 
-function Header(props)
+function Header()
 {
 
     let navigate = useNavigate();
-    // console.log(props);
+    let loginDetails = useRef(JSON.parse(localStorage.getItem('login_details')));
+    let [items,setItems]=useState([]);
 
-    // let cartdata = {props}
-    // console.log(cartdata);
+
+    useEffect(()=>{
+        fetch(`http://localhost:8000/items/allcartitems/${loginDetails.current.userid}`,{
+            headers:{
+                "authorization":`Bearer ${loginDetails.current.token}`
+            },
+        })
+        .then((res)=>res.json())
+        .then((data=>{
+
+            if(data.success=true)
+            { 
+                
+                console.log(data.data);
+                setItems(data.data)
+
+            }
+        }))
+        .catch((err)=>{
+            console.log(err);
+        })
+    },[items])
+
     return(
         <>
             <header id="header" className="header ">
@@ -35,11 +57,11 @@ function Header(props)
 
                             <Link to="/order"><li className="nav_link">orders</li></Link>
 
-                            <Link to="/cart"><li className="nav_link">
+                            <Link to="/cart"><li className="nav_link_cart">
                                 
                                     <div className="section_img header_img_cart">
                                       <i className="fa-solid fa-cart-shopping"></i>
-                                      <div className='product_count'>2</div>
+                                      <div className='product_count'>{items?.length}</div>
                                     </div>
                                 
                                 </li></Link>

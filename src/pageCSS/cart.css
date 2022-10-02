@@ -148,5 +148,19 @@
 }
 
 /* item confirmation model */
+.cart_model_img{
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 6%;
+    padding-bottom: 5%;
+}
 
+.cart_model_img >img{
+    padding-left: 0%;
+}
+.confirmation_card > button{
+    font-family: light;
+    font-size: 14px;
+    border-radius: 6px;
+}
 

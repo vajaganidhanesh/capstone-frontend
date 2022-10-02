@@ -3,15 +3,16 @@ import '../pageCSS/cart.css'
 import { useEffect,useRef, useState } from "react"
 import Footer from "../components/footer";
 import Header from "../components/header";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 function Cart()
 {
 
     let loginDetails = useRef(JSON.parse(localStorage.getItem('login_details')));
-    // let navigate = useNavigate();
+    let navigate = useNavigate();
     let [items,setItems]=useState([]);
-    let [totalData,setTotalData] = useState({})
+    let [totalData,setTotalData] = useState({});
+    let [ordermodel,setOrderModel] = useState(false);
 
 
     useEffect(()=>{
@@ -25,7 +26,7 @@ function Cart()
 
             if(data.success=true)
             { 
-                console.log(data.data);
+              
                 setItems(data.data)
 
                 let price = null;
@@ -221,7 +222,12 @@ function Cart()
 
         .then((res)=>res.json())
         .then((data)=>{
-            console.log(data);
+           
+            if(data.success===true)
+            {
+                console.log(data);
+                setOrderModel(true)
+            }
         })
         .catch((err)=>{
             console.log(err);
@@ -233,11 +239,48 @@ function Cart()
 
     return(
         <>
-            <Header message={totalData}/>
+
+        {
             
-                
+            ordermodel===true?(
+                <>
+                <div className='update_item'onClick={()=>{
+                        setOrderModel(false)
+                    }}>
 
+                        <div className='confirmation_card' onClick={(e)=>{
+                                    e.stopPropagation();
+                                }}>
 
+                            <div className='closing_model' onClick={()=>{
+                                setOrderModel(false)
+
+                            }}>
+                                <i className="fa-solid fa-xmark"></i>
+                            </div>
+                            <h3 >
+                                Order placed successfully
+                            </h3>
+
+                            <div className='selected_item_details'>
+                                
+                                <div className='selected_item_details_img_con cart_model_img'>
+                                    <img src="../assets/order placed.svg" alt="item_img"/>
+                                </div>
+
+                            </div>
+                            <button onClick={()=>{
+                                navigate('/order')
+                            }}>Your Orders</button>
+                        </div>
+                       
+                    </div>
+                </>
+            ):null
+
+        }
+            <Header />
+            
                     <div className='cart_container'>
 
                         <div className='cart_main_container'>

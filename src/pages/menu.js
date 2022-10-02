@@ -13,9 +13,6 @@ function Menu()
     let [itemconfirm,setItemconfirm] = useState(false)
     let navigate = useNavigate()
 
-    useEffect(()=>{},[])
-  
-
     useEffect(()=>{
         fetch('http://localhost:8000/items/allitems',{
             headers:{
@@ -127,21 +124,7 @@ function Menu()
             <Header/>
 
             <div className="allitems">
-                {/* <div className='all_items menu_bar cart_bgc'>
-                    <h3>All Items</h3>
-
-                    <div className='cart_header '>
-
-                        <div className='cart_addmore'>your cart</div>
-                        <div className='cart_section'>
-                            <i className="fa-sharp fa-solid fa-cart-shopping" onClick={()=>{
-                                navigate("/cart")
-                            }}></i>
-                            <span>{cartItems}</span>
-                        </div>
-
-                    </div>
-                </div> */}
+                
                     <div className='item_container'>
                         
                         {

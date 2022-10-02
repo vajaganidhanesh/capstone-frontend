@@ -59,7 +59,7 @@
     padding-right: 20px;
 }
 
-.nav_link{
+.nav_link , .nav_link_cart{
     display: inline-block;
     font-family:semibold;
     font-weight: 450;
