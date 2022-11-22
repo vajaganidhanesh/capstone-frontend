@@ -1,9 +1,9 @@
 import '../pageCSS/menu.css'
-import { useEffect,useRef, useState } from "react"
+import { createContext, useEffect,useRef, useState } from "react"
 import Footer from "../components/footer"
 import Header from "../components/header"
 import { useNavigate } from 'react-router-dom';
-
+export const UserContext = createContext();
 function Menu()
 {
 
@@ -11,9 +11,14 @@ function Menu()
     let [items,setItems] = useState([]);
     let [cartItems,setCartItems] = useState([])
     let [itemconfirm,setItemconfirm] = useState(false)
-    let navigate = useNavigate()
-
+    let navigate = useNavigate();
+    let loader = useRef()
+    let cartItem = useRef()
+   
+    // loader.current.style.display = 'flex';
+    
     useEffect(()=>{
+        document.getElementById('email_loader').style.display='flex';
         fetch('http://localhost:8000/items/allitems',{
             headers:{
                 "authorization":`Bearer ${loginDetails.current.token}`
@@ -24,6 +29,9 @@ function Menu()
 
             if(data.success=true )
             { 
+                document.getElementById('email_loader').style.display='none';
+
+
                 console.log(data);
                 setItems(data.items)
             }
@@ -34,6 +42,7 @@ function Menu()
         })
     },[])
 
+   
     
     function addToCart(product)
     {   
@@ -63,6 +72,10 @@ function Menu()
         .then((data)=>{
 
             console.log(data);
+            localStorage.setItem('cartItem',data.cart.cartItems.length)
+            let datas = localStorage.getItem('cartItem');
+            console.log(datas);
+
         })
 
         .catch((err)=>{
@@ -78,6 +91,17 @@ function Menu()
     }
     return(
         <>
+            <div  ref={loader} className="email_loading_effect" id="email_loader">
+                <div className="email_loader_container">
+                    
+                    <div className="loading">
+                        <img src="./assets/loading_effect.svg" alt="" />
+                    </div>
+
+                    <div className="loader_text">Please waiting!...</div>
+                    
+                </div>
+            </div>
             {
                 itemconfirm===true?(
                     <div className='update_item'onClick={()=>{
@@ -120,8 +144,10 @@ function Menu()
                     </div>
                 ):null
             }
-
-            <Header/>
+            {/* <UserContext.Provider value={"1"}> */}
+                <Header  />
+            {/* </UserContext.Provider> */}
+            
 
             <div className="allitems">
                 

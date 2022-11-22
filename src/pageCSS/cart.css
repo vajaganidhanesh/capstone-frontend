@@ -6,7 +6,7 @@
 
 .cart_main_container{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     min-height:90vh;
 }
@@ -44,6 +44,10 @@
     height: auto;
     padding: 10px 0px;
     row-gap: 10px;
+}
+
+.cart_item_container_details{
+    margin-left: 6%;
 }
 
 .cart_card{

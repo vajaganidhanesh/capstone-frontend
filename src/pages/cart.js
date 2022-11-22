@@ -26,7 +26,8 @@ function Cart()
 
             if(data.success=true)
             { 
-              
+                console.log(data.data);
+                localStorage.setItem('cartItem',data.data.length)
                 setItems(data.data)
 
                 let price = null;
@@ -68,6 +69,7 @@ function Cart()
             if(data.success=true)
             { 
                 console.log(data.data);
+                localStorage.setItem('cartItem',items.length)
                 setItems(data.data)
 
                 let price = null;
@@ -112,6 +114,8 @@ function Cart()
             console.log(data);
             if(data.success === true)
             {
+               localStorage.setItem('cartItem',items.length)
+               
                 updateui()
             }
         })
@@ -209,7 +213,7 @@ function Cart()
             data.push(cartitems)
         })
 
-        console.log(data);
+        // console.log(data);
 
         fetch(`http://localhost:8000/items/orderdetails`,{
             method:"POST",
@@ -279,12 +283,12 @@ function Cart()
             ):null
 
         }
-            <Header />
+            <Header value={items}/>
             
                     <div className='cart_container'>
 
-                        <div className='cart_main_container'>
-                            <div className='cart_item_container'>
+                        <div className='cart_main_container '>
+                            <div className='cart_item_container cart_item_container_details'>
 
                                 {
                                     
@@ -330,8 +334,7 @@ function Cart()
                                                     <img src="../assets/emptycart.svg" alt='uploadimage'/>
 
                                                     <div>
-                                                    
-                                                    <Link to="/menu"><button>additems</button></Link>    
+                                                        <Link to="/menu"><button>additems</button></Link>    
                                                     </div>
                                                 </div>
                                             

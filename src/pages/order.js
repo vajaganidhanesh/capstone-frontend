@@ -41,7 +41,8 @@ function Order()
 
                 <div className='order_container'>
 
-                <div className='cart_main_container'>
+                <div className='cart_main_container order_main_container'>
+                    <h2 className="rest_heading">Yours Orders</h2>
                             <div className='cart_item_container'>
 
                                 {
@@ -81,7 +82,7 @@ function Order()
                                             )
                                         }):
                                         (
-                                            <div className='add_items_container'>
+                                            <div className='add_items_container empty_order_container'>
                                             
                                                 <div className='cart_items_image'>
                                                     

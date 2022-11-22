@@ -11,12 +11,12 @@
 .mobile{
     display: none;
 }
-.navbar{
+.navbar_container{
     height:80px;
     width: 100%;
     display: flex;
     z-index: 100px;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
    
 
@@ -31,7 +31,7 @@
 .logo{
     width: 100%;
     height: 90%;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
     cursor: pointer;
     transition: .3s;
 }
@@ -41,11 +41,11 @@
 }
 
 .nav_container{
-    width:50%;
+    width:40%;
     height:auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 
 }
 
@@ -59,6 +59,11 @@
     padding-right: 20px;
 }
 
+ul,li{
+    margin-bottom: 0rem;
+    padding-left: 0rem;
+}
+
 .nav_link , .nav_link_cart{
     display: inline-block;
     font-family:semibold;
@@ -66,6 +71,10 @@
     font-size: 16px;
     letter-spacing: .1em;
     font-size: .9em;
+    margin-bottom: 0;
+}
+.nav_link_cart{
+    padding-right: 65px;
 }
 
 .nav_link::after{

@@ -26,7 +26,10 @@ function App() {
 
             <Route path='/landingpage' element={<LandingPage/>} />
 
-            <Route path='/restaurants' element={<RestaurantList/>}/>
+            <Route path='/restaurants' element={
+            <Protect>
+              <RestaurantList/>
+            </Protect>}/>
 
             <Route path='/userAuthentication' element={<UserAuthentication/>}/>
 
@@ -38,16 +41,18 @@ function App() {
 
             <Route path='/createitem' element={
 
-            <Protect>
+           
               <CreateItem/>
-            </Protect>}/>
+           }/>
 
             <Route path='/allitems' element={
-            <Protect>
+            
               <Allitems/>
-            </Protect>}/>
+            }/>
 
             <Route path='/menu' element={<Menu/>}/>
+            
+          
             <Route path='/cart' element={
               
             <Protect>
@@ -58,7 +63,7 @@ function App() {
               
               <Protect>
                 <Order/>
-              </Protect>}/>
+            </Protect>}/>
 
         
 
