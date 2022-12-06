@@ -50,7 +50,11 @@ function App() {
               <Allitems/>
             }/>
 
-            <Route path='/menu' element={<Menu/>}/>
+            <Route path='/menu' element={
+              
+              <Protect>
+                <Menu/>
+              </Protect>}/>
             
           
             <Route path='/cart' element={
