@@ -80,9 +80,6 @@ function RestaurantAuthentication()
                                         }}/>
 
                                     </div>
-                                    <textarea placeholder='enter address' name="" id="textarea" cols="10" rows="10" class="input_textarea" onChange={(event)=>{
-                                        readValue("address",event.target.value)
-                                    }}></textarea>
                                     
                                 
                                     <div className="button_iw">
@@ -98,7 +95,10 @@ function RestaurantAuthentication()
                                             </div>
                                         <small id="cmt" className="comments">please provide input values</small>
                                     </div>
-
+                                    <textarea placeholder='enter address' name="" id="textarea" cols="10" rows="10" class="input_textarea" onChange={(event)=>{
+                                        readValue("address",event.target.value)
+                                    }}></textarea>
+                                    
                                     <div className='btns_restaurant'>
 
                                         <button class="button" className="button_iw" type='button' onClick={()=>{

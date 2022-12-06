@@ -354,9 +354,9 @@ function Cart()
 
                                                 <div>Payable amount : {totalData.price}</div>
                                                 
-                                                <div className="section_img remove_button"  onClick={()=>{
+                                                <div className="place_order"  onClick={()=>{
                                                                 placeOrder()
-                                                }}>Place Order</div>
+                                                }}> <span>Order Now</span></div>
                                             </div>
                                         </div>
                                     ):null

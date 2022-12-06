@@ -194,6 +194,7 @@
     }
     /* css for cart component */
     .cart_main_container{
+        width: 100%;
         justify-content: center;
     }
     .cart_items_image > img{
@@ -205,6 +206,8 @@
         flex-direction: column;
         padding: 10px;
         font-size: 14px;
+        width: 100%;
+        margin: 0%;
     }
     
     .total_items_container{
@@ -212,5 +215,6 @@
         justify-content: flex-start !important;
         align-items: start !important;
         flex-direction: column;
+        row-gap: 5px;
     }
 }

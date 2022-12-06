@@ -104,7 +104,18 @@ button:hover{
 
 }
 
+.place_order{
+    /* wid !important; */
+    background-color:#d6f4eb;
+    padding: 5px 10px;
+    font-family: bold;
+    color:#0CBC8B;
+    border-radius:8px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 
+}
 @media (max-width:720px) {
     .landpage{
         padding:30px 0px;
@@ -161,9 +172,7 @@ button:hover{
     .input_field{
         padding: 5px 10px !important;
     }
-    /* .input::placeholder{
-        font-size: 14px !important;
-    } */
+
     .input_textarea{
         height: 50px !important;
         font-family: light !important;
@@ -176,7 +185,6 @@ button:hover{
         height: auto !important;
     }
 
-    
     .order_container {
         padding-top: 45px !important;
     }
@@ -200,6 +208,28 @@ button:hover{
     }
     .cart_item_container {
         margin-left: 0% !important;
+    }
+    .cart_container{
+        padding-top: 55px !important;
+    }
+    input{
+        width: 100% !important;
+    }
+
+    .remove_button{
+        padding:0px 35px !important;
+    }
+    .place_order{
+        width: 100% !important;
+        background-color:#d6f4eb;
+        padding: 5px;
+        font-family: bold;
+        color:#0CBC8B;
+        border-radius:8px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
     }
 }
 
