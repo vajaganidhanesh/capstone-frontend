@@ -148,3 +148,69 @@
     text-align: center;
 }
 
+@media (max-width:720px) {
+
+    .item_container {
+        width: 100%;
+        padding-top: 60px !important;
+       padding:15px
+   
+    }
+    .item_details {
+        width: 100% !important;
+    }
+    .rest_main_login_class {
+        flex-direction: column;
+        padding: 15x !important;
+        padding-top: 70px !important;
+        row-gap: 20px;
+        min-height: auto !important;
+    }
+    .restaurant_image> img {
+        width: 90% !important;
+    }
+    .restaurant_authentication {
+        padding: 0px;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+
+    /* css for restaruant section */
+
+    .header_sec{
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .section_option{
+        padding-top: 0px !important;
+    }
+    .restaurant_details_container{
+        margin-left: 0%;
+        padding: 20px;
+    }
+    .restaurantList_container{
+        padding-top: 65px;
+    }
+    /* css for cart component */
+    .cart_main_container{
+        justify-content: center;
+    }
+    .cart_items_image > img{
+        height: 40% !important;
+    }
+    .total_amount{
+        height: auto !important;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .total_items_container{
+        width: 100%;
+        justify-content: flex-start !important;
+        align-items: start !important;
+        flex-direction: column;
+    }
+}

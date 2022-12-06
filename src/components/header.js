@@ -3,14 +3,27 @@ import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 import {UserContext} from '../pages/menu.js'
 
-function Header(props)
+function Header({value})
 {
-    // console.log(props);
+    let cart = value;
+    console.log(cart);
     let navigate = useNavigate();
+    let navitems = useRef();
+    let [navbar,setNavbar] = useState(false);
     // let loginDetails = useRef(JSON.parse(localStorage.getItem('login_details')));
     let cartLength = useRef(localStorage.getItem('cartItem'));
-    console.log(cartLength);
     
+    function navigation(){
+        if(navbar === false){
+            navitems.current.style.height="250px";
+            navitems.current.style.width="100%";
+            setNavbar(true);
+        }
+        else{
+            navitems.current.style.height="0px";
+            setNavbar(false);
+        }
+    }
 
 
     // useEffect(()=>{
@@ -37,19 +50,18 @@ function Header(props)
 
     return(
         <>
-            <header id="header" className="header ">
+            <div></div>
+            <header id="header" className="header">
                 <nav className="navbar_container" id="navbar">
                     <div className="logo_section">
                         <img className='logo' src="../assets/capstone_logo.svg" alt='logo_image' onClick={()=>{
                             navigate('/landingpage')
                         }}/>
 
-                        <div className="mobile">
-                            {/* <i className="fa-solid fa-bars" id="icon" onClick="navbar()"></i> */}
-                        </div>
+                        
                     </div>
                     <div className="nav_container">
-                        <ul className="nav_links" id="nav_links">
+                        <ul className="nav_links" ref={navitems} id="nav_links">
                             <Link to="/menu"><li className="nav_link">menu</li></Link>
 
                             <Link to="/restaurants"><li className="nav_link">restaurants</li></Link>
@@ -77,20 +89,23 @@ function Header(props)
                             {/* <i className="fa-solid fa-cart-shopping"></i> */}
                         </ul>
                     </div>
-                    <div>
-                    <Link to="/cart"><li className="nav_link_cart">
+                    <div className='cart_section_mobile'>
+                    <div className="mobile">
+                            <i className="fa-solid fa-bars" id="icon" onClick={()=>{navigation()}}></i>
+                        </div>
+                        <Link to="/cart"><li className="nav_link_cart">
+                                    
+                                    <div className="section_img header_img_cart">
+                                    <i className="fa-solid fa-cart-shopping"></i>
+                                    <div className='product_count'>{cartLength.current}</div>
+                                    {/* <UserContext.Consumer>
+                                            {
+                                                value =>count.current = value
+                                            }
+                                    </UserContext.Consumer> */}
+                                    </div>
                                 
-                                <div className="section_img header_img_cart">
-                                  <i className="fa-solid fa-cart-shopping"></i>
-                                  <div className='product_count'>{cartLength.current}</div>
-                                 {/* <UserContext.Consumer>
-                                        {
-                                            value =>count.current = value
-                                        }
-                                 </UserContext.Consumer> */}
-                                </div>
-                            
-                            </li></Link>
+                        </li></Link>
                     </div>
                 </nav>
             </header>

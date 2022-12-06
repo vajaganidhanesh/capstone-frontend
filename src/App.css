@@ -119,3 +119,19 @@ span{
     font-size: 25px;
     cursor: pointer;
 }
+@media (max-width:720px) {
+    .footer{
+        flex-direction: column;
+        height: auto;
+        padding: 0px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+    .footer_container{
+        width: 100%;
+        justify-content: flex-start
+    }
+    .footer_link_a > i {
+        padding:0px;
+    }
+}

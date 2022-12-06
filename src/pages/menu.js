@@ -10,10 +10,10 @@ function Menu()
     let loginDetails = useRef(JSON.parse(localStorage.getItem('login_details')));
     let [items,setItems] = useState([]);
     let [cartItems,setCartItems] = useState([])
-    let [itemconfirm,setItemconfirm] = useState(false)
+    let [itemconfirm,setItemconfirm] = useState(false);
+    let [cartCount,setCartCount] = useState(0);
     let navigate = useNavigate();
-    let loader = useRef()
-    let cartItem = useRef()
+    let loader = useRef();
    
     // loader.current.style.display = 'flex';
     
@@ -42,8 +42,7 @@ function Menu()
         })
     },[])
 
-   
-    
+
     function addToCart(product)
     {   
         
@@ -72,7 +71,8 @@ function Menu()
         .then((data)=>{
 
             console.log(data);
-            localStorage.setItem('cartItem',data.cart.cartItems.length)
+            localStorage.setItem('cartItem',data.cart.cartItems.length);
+            setCartCount(data.cart.cartItems.length);
             let datas = localStorage.getItem('cartItem');
             console.log(datas);
 
@@ -145,7 +145,7 @@ function Menu()
                 ):null
             }
             {/* <UserContext.Provider value={"1"}> */}
-                <Header  />
+                <Header value={cartCount} />
             {/* </UserContext.Provider> */}
             
 

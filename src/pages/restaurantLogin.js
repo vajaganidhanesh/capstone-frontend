@@ -60,7 +60,7 @@ function RestaurantLogin()
                         <img src="../assets/admin login.svg" alt='uploadimage'/>
                     </div>
                 <div className='restaurant_authentication restaurant_auth_login'>
-                    <div className='landpage_container'>
+                    <div className='landpage_container landing_container_mobile'>
                         <h4>Restaurant Admin</h4>
                             <div className='restaurant_container'>
                                 <form className='restaurant_login_form'>

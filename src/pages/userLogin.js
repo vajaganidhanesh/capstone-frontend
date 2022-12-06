@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
 import Header from "../components/header";
@@ -6,6 +7,12 @@ function UserLogin()
 {
     let navigate = useNavigate();
     let userCred={}
+    let error = useRef();
+    let message = useRef();
+    let inputForm1 = useRef();
+    let inputForm2 = useRef();
+    let form = useRef(); 
+
 
     function readValue(property,value)
     {
@@ -35,12 +42,18 @@ function UserLogin()
 
                     console.log(responseData);
                     localStorage.setItem("login_details",JSON.stringify(responseData));
+                    error.current.display="flex";
                     navigate('/menu')
                     
                 }
                 else{
-                    document.getElementById("cmts").style.display="block"
-                    document.getElementById("cmts").innerText="Incorrect password or email"
+                    form.current.reset();
+                    let null_message = "Please provide valid details!..."
+                    errorMessage(null_message);
+
+                    setTimeout(() => {
+                        moveSlider();
+                    }, 5000);
                 }
                 
             })
@@ -52,15 +65,46 @@ function UserLogin()
 
         else
         {
-            document.getElementById("cmts").style.display="block"
+            let null_message = "Please provide the details!..."
+            errorMessage(null_message);
+
+            setTimeout(() => {
+                moveSlider();
+            },5000);
 
         }
+    
+    }
 
+    function errorMessage(null_message){
+        error.current.style.left="0%";
+        error.current.style.color="red";
+        message.current.innerText=null_message;
+        error.current.style.backgroundColor="#fb000026";
+        inputForm1.current.style.border="1px solid red";
+        inputForm2.current.style.border="1px solid red";
+    }
+
+    function moveSlider(){
+        error.current.style.left="100%"
+        inputForm1.current.style.border="1px solid transparent";
+        inputForm2.current.style.border="1px solid transparent";
         
     }
     return(
         <>
+           
             <Header/>
+                <div className="notification" id="notification" ref={error}>
+                    <div className="notification_message">
+                        <div ref={message}></div>
+
+                        <div className="messageIcon" onClick={()=>{moveSlider()} }>
+                            <i id="messageIcon"   className="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                </div>
+                
                 <div className='rest_main_class rest_main_login_class'>
 
                     <div className='restaurant_image landpage_image restaurant_login'>
@@ -68,17 +112,17 @@ function UserLogin()
                     </div>
 
                     <div className='restaurant_authentication'>
-                        <div className='landpage_container'>
+                        <div className='landpage_container landing_container_mobile'>
                         <h4>Please login Foodie..</h4>
                         <div className='restaurant_container'>
-                            <form className='restaurant_login_form'>
+                            <form ref={form} className='restaurant_login_form'>
 
-                                <input className="input_field" type='text' placeholder='enter name or email' required onChange={(event)=>{
+                                <input ref={inputForm1} className="input_field" type='text' placeholder='enter name or email' required onChange={(event)=>{
                                     readValue('email',event.target.value)
                                 }}/>
 
                                 <div className="button_iw">
-                                    <input className="input_field" type='password' placeholder='enter password' required onChange={(event)=>{
+                                    <input className="input_field" ref={inputForm2} type='password' placeholder='enter password' required onChange={(event)=>{
                                         readValue('password',event.target.value)
                                     }}/>
                                     <small id="cmts" className="comments">please provide input values</small>

@@ -52,7 +52,7 @@ function RestaurantAuthentication()
                         <img src="../assets/Upload.svg" alt='uploadimage'/>
                     </div>
                     <div className='restaurant_authentication rest_auth_form_container'>
-                        <div className='landpage_container' >
+                        <div className='landpage_container landing_container_mobile' >
                     
                             <h4>Register your restaurant </h4>
                             <div className='restaurant_container'>

@@ -104,3 +104,102 @@ button:hover{
 
 }
 
+
+@media (max-width:720px) {
+    .landpage{
+        padding:30px 0px;
+        padding-top: 60px;
+        height: auto;
+    }
+    .landpage_main{
+        flex-direction: column;
+    }
+
+    .landpage_image{
+        width: 100%;
+       padding-left: 5px;
+       justify-content: center;
+    }
+    .landpage_container{
+        margin-top: 30px;
+        width: 90%;
+        padding: 15px;
+    }
+    .landing_heading_capstone{
+        font-size: 18px;
+    }
+    .navigations{
+        flex-direction: column;
+        padding: 0;
+        column-gap: 30px;
+        row-gap: 30px;
+        align-items: flex-start;
+    }
+    .landing_container_mobile{
+        padding: 0px !important;
+    }
+    .signup_footer>p {
+        font-size: 13px;
+    }
+
+    .rest_main_class {
+        flex-direction: column;
+        padding:20px !important;
+        padding-top: 55px !important;
+        row-gap: 20px;
+    }
+
+    .input_block_one {
+        flex-direction: column;
+        row-gap: 10px;
+        width: 100%;
+    }
+    .landpage_container > h4 {
+        font-size: 15px;
+        margin: 0px;
+    }
+    .input_field{
+        padding: 5px 10px !important;
+    }
+    /* .input::placeholder{
+        font-size: 14px !important;
+    } */
+    .input_textarea{
+        height: 50px !important;
+        font-family: light !important;
+        font-weight: 100 !important;
+    }
+    .restaurant_image{
+        width: auto !important;
+    }
+    .restaurant_auth_login {
+        height: auto !important;
+    }
+
+    
+    .order_container {
+        padding-top: 45px !important;
+    }
+
+    .cart_card {
+       flex-direction: column;
+    }
+
+    .cart_image_container{
+        width: 100% !important;
+    }
+
+    .cart_details_container{
+        width: 100% !important;
+        padding: 10px !important;
+        height: auto !important;
+        font-size: 14px;
+    }
+    .cart_main_container {
+        min-height: auto !important;
+    }
+    .cart_item_container {
+        margin-left: 0% !important;
+    }
+}
+

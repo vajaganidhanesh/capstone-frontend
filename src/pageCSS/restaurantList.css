@@ -108,3 +108,11 @@
     font-family: regular;
     font-size: 12px;
 }
+
+@media (max-width:720px) {
+    .section_ img{
+        width: 30px;
+        height: 30px;
+        display: none;
+    }
+}
