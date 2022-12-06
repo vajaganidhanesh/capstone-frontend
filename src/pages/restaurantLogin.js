@@ -78,7 +78,7 @@ function RestaurantLogin()
                                         
                                     <div className='btns_restaurant'>
 
-                                        <button type="button" className="button_iw" onClick={()=>{
+                                        <button type="button" className="button_iw button" onClick={()=>{
                                             restaurantLogin()
                                         }}>Login</button>
 

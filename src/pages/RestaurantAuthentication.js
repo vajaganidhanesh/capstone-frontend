@@ -101,7 +101,7 @@ function RestaurantAuthentication()
                                     
                                     <div className='btns_restaurant'>
 
-                                        <button class="button" className="button_iw" type='button' onClick={()=>{
+                                        <button className="button_iw button" type='button' onClick={()=>{
                                             resSignup()
                                         }}>signup</button>
 

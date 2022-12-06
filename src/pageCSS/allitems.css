@@ -185,6 +185,9 @@
     .section_option{
         padding-top: 0px !important;
     }
+    .restaurant_container{
+        width: 100% !important;
+    }
     .restaurant_details_container{
         margin-left: 0%;
         padding: 20px;
@@ -197,6 +200,9 @@
         width: 100%;
         justify-content: center;
     }
+    .cart_items_image{
+        row-gap: 30px !important;
+    }
     .cart_items_image > img{
         height: 40% !important;
     }
@@ -204,10 +210,10 @@
         height: auto !important;
         justify-content: flex-start;
         flex-direction: column;
-        padding: 10px;
+        padding: 10px !important;
         font-size: 14px;
-        width: 100%;
-        margin: 0%;
+        width: 100% !important;
+        margin: 0% !important;
     }
     
     .total_items_container{
@@ -216,5 +222,27 @@
         align-items: start !important;
         flex-direction: column;
         row-gap: 5px;
+    }
+    .order_main_container{
+        min-height: 70vh !important;
+    }
+    .rest_heading{
+        text-align: start;
+        margin: 0% !important;
+    }
+    .rest_header_detail{
+        width: 100% !important;
+    }
+    .rest_details{
+        row-gap: 5px !important;
+    }
+    .rest_details > button{
+        margin: 0px !important;
+    }
+    .signup_footer{
+        column-gap: 10px !important;
+    }
+    .signup_footer > span{
+        font-size: 13px !important;
     }
 }
