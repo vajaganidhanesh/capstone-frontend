@@ -114,7 +114,50 @@ button:hover{
     display:flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
+}
+
+.place_order:hover{
+    color:#000;
+    background: #d6f4eb;
+}
+.place_order:active{
+    transform: scale(1.1);
+    color: #0CBC8B;
+    background: white;
+}
+.button:hover{
+    color:white;
+    background: #0CBC8B;
+}
+.button:active{
+    transform: scale(1.1);
+    color: #0CBC8B;
+    background: white;
+}
+.restaurant_login_form {
+    row-gap: 5px !important;
+}
+.restaurant_login_form > div{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+.restaurant_login_form > div > small{
+    width: 100%;
+    color:red;
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    padding-left: 10px;
+    transition: .3s;
+    margin-left: 100%;
+    font-family: regular;
 }
 @media (max-width:720px) {
     .landpage{

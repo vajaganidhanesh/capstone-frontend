@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom"
 import Footer from "../components/footer";
 import Header from "../components/header";
-
+import { emailRegex } from "./email";
 
 function UserAuthentication()
 {
@@ -12,7 +12,16 @@ function UserAuthentication()
     let message = useRef();
     let inputForm1 = useRef();
     let inputForm2 = useRef();
+    let inputForm3 = useRef();
+    let inputForm4 = useRef();
+    let name = useRef();
+    let email = useRef();
+    let password = useRef();
+    let mobile = useRef();
     let error = useRef();
+
+    let FormsInputs = [inputForm1,inputForm2,inputForm3,inputForm4];
+    let Tags = [name,email,password,mobile,error];
 
     function readValue(property,value)
     {
@@ -20,16 +29,9 @@ function UserAuthentication()
         console.log(user);
     }
 
-    function formvalidaton(name,email,password,mobile){
+    function formvalidaton(){
 
-        // if(user.name !== )
-    }
-
-    function signup(){
-
-        if(user.name !== undefined && user.password !== undefined && user.email !== undefined && user.mobile !== undefined){
-            formvalidaton(user.name,user.email,user.password,user.mobile);
-            fetch("http://localhost:8000/user/signup",{
+        fetch("http://localhost:8000/user/signup",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -45,8 +47,6 @@ function UserAuthentication()
                     console.log(responseData);
                     localStorage.setItem("login_details",JSON.stringify(responseData));
                     error.current.display="flex";
-                    
-                    
                 }
                 else{
                     form.current.reset();
@@ -62,6 +62,48 @@ function UserAuthentication()
             .catch((err)=>{
                 console.log(err);
             })
+    }
+    function inputErrorMessage(message,input,text){
+        message.current.style.marginLeft= "0%";
+        input.current.style.border="1px solid red";
+        message.current.innerText= text;
+    }
+    
+
+    function signup(){
+        if(user.name !== undefined && user.password !== undefined && user.email !== undefined && user.mobile !== undefined){
+            
+            if(user.name.length <= 5){
+                let nameMessage = "please enter full name"
+                inputErrorMessage(name,inputForm1,nameMessage)
+                inputError(name,inputForm1);
+            }
+            
+             if(!emailRegex.test(user.email) && user.email.length <=5){
+                let emailMessage = "please enter valid email"
+                inputErrorMessage(email,inputForm2,emailMessage);
+                inputError(email,inputForm2);
+            }
+
+            if(user.password.length <=6){
+                let passwordMessage = "enter 6 digits or more";
+                inputErrorMessage(password,inputForm3,passwordMessage);
+                inputError(password,inputForm3);
+            }
+
+             if(user.mobile.toString().length <=9 || user.mobile.toString().length >=11){
+                let mobileMessage = "enter valid phone number";
+
+                inputErrorMessage(mobile,inputForm4,mobileMessage);
+                inputError(mobile,inputForm4);
+                
+            }
+            else{
+                // formvalidaton();
+                console.log("submition");
+            }
+
+
         }
         else{
             let null_message = "Please provide the details!..."
@@ -74,19 +116,39 @@ function UserAuthentication()
         }
     }
 
+   
     function errorMessage(null_message){
         error.current.style.left="0%";
         error.current.style.color="red";
         message.current.innerText=null_message;
         error.current.style.backgroundColor="#fb000026";
-        inputForm1.current.style.border="1px solid red";
-        inputForm2.current.style.border="1px solid red";
+
+        FormsInputs.map((value,index)=>{
+            value.current.style.border="1px solid red";
+        })
+
+        Tags.map((value,index)=>{
+            value.current.style.marginLeft="0%"
+        })
     }
 
     function moveSlider(){
+        
         error.current.style.left="100%";
-        inputForm1.current.style.border="1px solid transparent";
-        inputForm2.current.style.border="1px solid transparent";
+        
+        FormsInputs.map((value,index)=>{
+            value.current.style.border="1px solid transparent";
+        })
+        Tags.map((value,index)=>{
+            value.current.style.marginLeft="100%"
+        })
+    }
+
+    function inputError(message,input){
+        setTimeout(() => {
+            message.current.style.marginLeft= "100%";
+            input.current.style.border="1px solid transparent";    
+            }, 5000);
     }
     return(
         <>
@@ -115,21 +177,34 @@ function UserAuthentication()
                         <div className='restaurant_container'>
                             <form ref={form} className='restaurant_login_form'>
 
-                                <input className="input_field" type='text' ref={inputForm1} id="name" required={true} placeholder='enter name' onChange={(event)=>{
-                                readValue('name',event.target.value)
-                                }}/>
+                                <div>
+                                    <input className="input_field" type='text' ref={inputForm1} id="name" required={true} placeholder='enter name' onChange={(event)=>{
+                                    readValue('name',event.target.value)
+                                    }}/>
+                                    <small id="name" ref={name}>enter valid name</small>
+                                </div>
+                                
+                                <div>
 
-                                <input className="input_field" type='email'id="email" ref={inputForm2} required={true} placeholder='enter email' onChange={(event)=>{
-                                readValue('email',event.target.value)
-                                }}/>
+                                    <input className="input_field" type='email'id="email" ref={inputForm2} required={true} placeholder='enter email' onChange={(event)=>{
+                                    readValue('email',event.target.value)
+                                    }}/>
+                                    <small id="email" ref={email}>enter valid email</small>
+                                </div>
 
-                                <input className="input_field" type='password' id="password" required={true} placeholder='enter password' onChange={(event)=>{
-                                readValue('password',event.target.value)
-                                }}/>
+                                <div>
+                                    <input className="input_field" type='password' id="password" ref={inputForm3} required={true} placeholder='enter password' onChange={(event)=>{
+                                    readValue('password',event.target.value)
+                                    }}/>
+                                    <small id="password" ref={password}>enter 6 digits or more </small>
+                                </div>
 
-                                <input className="input_field" type='number' id="number" required={true} placeholder='enter mobile number' maxLength={10} min={10}  onChange={(event)=>{
-                                readValue('mobile',event.target.value)
-                                }}/>
+                                <div>
+                                    <input className="input_field" type='number' id="number" ref={inputForm4} required={true} pattern="[0-9]*" placeholder='enter mobile number' maxLength={10} min={10}  onChange={(event)=>{
+                                    readValue('mobile',event.target.value)
+                                    }}/>
+                                    <small id="mobile" ref={mobile}>enter valid number</small>
+                                </div>
 
                                 <div className='btns_restaurant'>
 
