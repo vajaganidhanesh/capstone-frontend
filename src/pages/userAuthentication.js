@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Footer from "../components/footer";
 import Header from "../components/header";
 import { emailRegex } from "./email";
+import { nameRegex } from "./email";
 
 function UserAuthentication()
 {
@@ -73,25 +74,26 @@ function UserAuthentication()
     function signup(){
         if(user.name !== undefined && user.password !== undefined && user.email !== undefined && user.mobile !== undefined){
             
-            if(user.name.length <= 5){
+            if(!nameRegex.test(user.name) && user.name.length <= 5){
+                console.log(user.name.length);
                 let nameMessage = "please enter full name"
                 inputErrorMessage(name,inputForm1,nameMessage)
                 inputError(name,inputForm1);
             }
             
-             if(!emailRegex.test(user.email) && user.email.length <=5){
+            else if(!emailRegex.test(user.email) ){
                 let emailMessage = "please enter valid email"
                 inputErrorMessage(email,inputForm2,emailMessage);
                 inputError(email,inputForm2);
             }
 
-            if(user.password.length <=6){
+           else if(user.password.length <=6){
                 let passwordMessage = "enter 6 digits or more";
                 inputErrorMessage(password,inputForm3,passwordMessage);
                 inputError(password,inputForm3);
             }
 
-             if(user.mobile.toString().length <=9 || user.mobile.toString().length >=11){
+            else if(user.mobile.toString().length <=9 || user.mobile.toString().length >=11){
                 let mobileMessage = "enter valid phone number";
 
                 inputErrorMessage(mobile,inputForm4,mobileMessage);
@@ -178,7 +180,7 @@ function UserAuthentication()
                             <form ref={form} className='restaurant_login_form'>
 
                                 <div>
-                                    <input className="input_field" type='text' ref={inputForm1} id="name" required={true} placeholder='enter name' onChange={(event)=>{
+                                    <input className="input_field" type='text' ref={inputForm1} id="name" required={true} autoComplete="off" placeholder='enter name' onChange={(event)=>{
                                     readValue('name',event.target.value)
                                     }}/>
                                     <small id="name" ref={name}>enter valid name</small>
@@ -186,21 +188,21 @@ function UserAuthentication()
                                 
                                 <div>
 
-                                    <input className="input_field" type='email'id="email" ref={inputForm2} required={true} placeholder='enter email' onChange={(event)=>{
+                                    <input className="input_field" type='email'id="email" ref={inputForm2} required={true} autoComplete="off" placeholder='enter email' onChange={(event)=>{
                                     readValue('email',event.target.value)
                                     }}/>
                                     <small id="email" ref={email}>enter valid email</small>
                                 </div>
 
                                 <div>
-                                    <input className="input_field" type='password' id="password" ref={inputForm3} required={true} placeholder='enter password' onChange={(event)=>{
+                                    <input className="input_field" type='password' id="password" ref={inputForm3} required={true} autoComplete="off" placeholder='enter password' onChange={(event)=>{
                                     readValue('password',event.target.value)
                                     }}/>
                                     <small id="password" ref={password}>enter 6 digits or more </small>
                                 </div>
 
                                 <div>
-                                    <input className="input_field" type='number' id="number" ref={inputForm4} required={true} pattern="[0-9]*" placeholder='enter mobile number' maxLength={10} min={10}  onChange={(event)=>{
+                                    <input className="input_field" type='number' id="number" ref={inputForm4} required={true} pattern="[0-9]*" autoComplete="off" placeholder='enter mobile number' maxLength={10} min={10}  onChange={(event)=>{
                                     readValue('mobile',event.target.value)
                                     }}/>
                                     <small id="mobile" ref={mobile}>enter valid number</small>
