@@ -2,8 +2,12 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom"
 import Footer from "../components/footer";
 import Header from "../components/header";
+
+// regular expressions for form validation
 import { emailRegex } from "./email";
 import { nameRegex } from "./email";
+import { mobileRegex } from "./email";
+
 
 function UserAuthentication()
 {
@@ -74,9 +78,9 @@ function UserAuthentication()
     function signup(){
         if(user.name !== undefined && user.password !== undefined && user.email !== undefined && user.mobile !== undefined){
             
-            if(!nameRegex.test(user.name) && user.name.length <= 5){
+            if(!nameRegex.test(user.name) || user.name.length <5){
                 console.log(user.name.length);
-                let nameMessage = "please enter full name"
+                let nameMessage = "enter valid name without numeric values"
                 inputErrorMessage(name,inputForm1,nameMessage)
                 inputError(name,inputForm1);
             }
@@ -87,13 +91,14 @@ function UserAuthentication()
                 inputError(email,inputForm2);
             }
 
-           else if(user.password.length <=6){
+            else if(user.password.length <6){
                 let passwordMessage = "enter 6 digits or more";
                 inputErrorMessage(password,inputForm3,passwordMessage);
                 inputError(password,inputForm3);
             }
 
-            else if(user.mobile.toString().length <=9 || user.mobile.toString().length >=11){
+            else if(!mobileRegex.test(user.mobile)){
+
                 let mobileMessage = "enter valid phone number";
 
                 inputErrorMessage(mobile,inputForm4,mobileMessage);
@@ -101,7 +106,7 @@ function UserAuthentication()
                 
             }
             else{
-                // formvalidaton();
+                formvalidaton();
                 console.log("submition");
             }
 
@@ -117,13 +122,15 @@ function UserAuthentication()
 
         }
     }
-
-   
-    function errorMessage(null_message){
+    function error_message(null_message){
         error.current.style.left="0%";
         error.current.style.color="red";
         message.current.innerText=null_message;
         error.current.style.backgroundColor="#fb000026";
+    }
+   
+    function errorMessage(null_message){
+        error_message(null_message)
 
         FormsInputs.map((value,index)=>{
             value.current.style.border="1px solid red";

@@ -3,16 +3,24 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
 import Header from "../components/header";
 
+import { emailRegex } from "./email";
+
+
+
 function UserLogin()
 {
     let navigate = useNavigate();
     let userCred={}
     let error = useRef();
     let message = useRef();
+    let form = useRef(); 
     let inputForm1 = useRef();
     let inputForm2 = useRef();
-    let form = useRef(); 
+    let email = useRef();
+    let password = useRef();
 
+    let inputs = [inputForm1,inputForm2];
+    let input_values = [email,password];
 
     function readValue(property,value)
     {
@@ -20,13 +28,8 @@ function UserLogin()
         console.log(userCred);
     }
 
-    function loginDetails(){
-
-        if(userCred.email !== undefined || userCred.password !== undefined)
-
-        {
-
-                fetch("http://localhost:8000/user/login",{
+    function loginRequest(){
+        fetch("http://localhost:8000/user/login",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -48,7 +51,7 @@ function UserLogin()
                 }
                 else{
                     form.current.reset();
-                    let null_message = "Please provide valid details!..."
+                    let null_message = "Wrong Email or Password please provide valid one..."
                     errorMessage(null_message);
 
                     setTimeout(() => {
@@ -60,6 +63,35 @@ function UserLogin()
             .catch((err)=>{
                 console.log(err);
             })
+    }
+
+    function inputErrorMessage(message,input,text){
+        message.current.style.marginLeft= "0%";
+        input.current.style.border="1px solid red";
+        message.current.innerText= text;
+    }
+    
+
+    function loginDetails(){
+
+        if(userCred.email !== undefined || userCred.password !== undefined)
+
+        {
+            if(!emailRegex.test(userCred.email) ){
+                let emailMessage = "please enter valid email"
+                inputErrorMessage(email,inputForm1,emailMessage);
+                inputError(email,inputForm1);
+            }
+
+            else if(userCred.password.length <6){
+                let passwordMessage = "enter 6 digits or more";
+                inputErrorMessage(password,inputForm2,passwordMessage);
+                inputError(password,inputForm2);
+            }
+            else{
+                console.log("call login function");
+                loginRequest();
+            }
 
         }
 
@@ -76,20 +108,39 @@ function UserLogin()
     
     }
 
+
+
     function errorMessage(null_message){
         error.current.style.left="0%";
         error.current.style.color="red";
         message.current.innerText=null_message;
         error.current.style.backgroundColor="#fb000026";
-        inputForm1.current.style.border="1px solid red";
-        inputForm2.current.style.border="1px solid red";
+
+        inputs.map((val,index)=>{
+           return val.current.style.border="1px solid red";
+        })
+
+        input_values.map((value,index)=>{
+           return value.current.style.marginLeft="0%"
+        })
+        
     }
 
     function moveSlider(){
         error.current.style.left="100%"
-        inputForm1.current.style.border="1px solid transparent";
-        inputForm2.current.style.border="1px solid transparent";
-        
+        inputs.map(val=>{
+            return val.current.style.border="1px solid transparent";
+        })
+        input_values.map((value,index)=>{
+            return value.current.style.marginLeft="100%"
+        })
+    }
+
+    function inputError(message,input){
+        setTimeout(() => {
+            message.current.style.marginLeft= "100%";
+            input.current.style.border="1px solid transparent";    
+            }, 5000);
     }
     return(
         <>
@@ -116,16 +167,20 @@ function UserLogin()
                         <h4>Please login Foodie..</h4>
                         <div className='restaurant_container'>
                             <form ref={form} className='restaurant_login_form'>
+                                <div>
 
                                 <input ref={inputForm1} className="input_field" type='text' placeholder='enter name or email' required onChange={(event)=>{
                                     readValue('email',event.target.value)
                                 }}/>
+                                    <small ref={email}>enter valid email</small>
+                                </div>
+                                
 
-                                <div className="button_iw">
+                                <div >
                                     <input className="input_field" ref={inputForm2} type='password' placeholder='enter password' required onChange={(event)=>{
                                         readValue('password',event.target.value)
                                     }}/>
-                                    <small id="cmts" className="comments">please provide input values</small>
+                                    <small ref={password}>Please enter correct password</small>
                                 </div>
 
                                 <div className='btns_restaurant'>
