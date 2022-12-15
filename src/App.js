@@ -15,10 +15,10 @@ import Menu from './pages/menu';
 import Cart from './pages/cart';
 import Protect from './pages/protect';
 import Order from './pages/order';
-
+import { ItemsProvider } from './context/itemsContext';
 function App() {
   return (
-   <>
+   <ItemsProvider>
       <BrowserRouter>
           <Routes>
 
@@ -74,7 +74,7 @@ function App() {
 
           </Routes>
       </BrowserRouter>
-   </>
+   </ItemsProvider>
   );
 }
 

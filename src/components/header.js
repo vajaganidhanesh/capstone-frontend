@@ -1,12 +1,11 @@
-import { useEffect,useRef,useState } from 'react';
+import { useContext, useRef,useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
-import {UserContext} from '../pages/menu.js'
+import ItemsContext from '../context/itemsContext';
 
-function Header({value})
+function Header()
 {
-    let cart = value;
-    console.log(cart);
+    const {cartCount} = useContext(ItemsContext)
     let navigate = useNavigate();
     let navitems = useRef();
     let [navbar,setNavbar] = useState(false);
@@ -25,28 +24,6 @@ function Header({value})
         }
     }
 
-
-    // useEffect(()=>{
-    //     fetch(`http://localhost:8000/items/allcartitems/${loginDetails.current.userid}`,{
-    //         headers:{
-    //             "authorization":`Bearer ${loginDetails.current.token}`
-    //         },
-    //     })
-    //     .then((res)=>res.json())
-    //     .then((data=>{
-
-    //         if(data.success=true)
-    //         { 
-                
-    //             console.log(data.data);
-    //             setItems(data.data)
-
-    //         }
-    //     }))
-    //     .catch((err)=>{
-    //         console.log(err);
-    //     })
-    // },[])
 
     return(
         <>
@@ -97,7 +74,7 @@ function Header({value})
                                     
                                     <div className="section_img header_img_cart">
                                     <i className="fa-solid fa-cart-shopping"></i>
-                                    <div className='product_count'>{cartLength.current}</div>
+                                    <div className='product_count'>{cartCount}</div>
                                     {/* <UserContext.Consumer>
                                             {
                                                 value =>count.current = value
