@@ -64,7 +64,10 @@ function RestaurantAuthentication()
                                             readValue("name",event.target.value)
                                         }}/>
 
-                                        <input class="input_field" type='email' placeholder='enter restaurant email' onChange={(event)=>{
+                                        
+                                    </div>
+                                    <div>
+                                    <input class="input_field" type='email' placeholder='enter restaurant email' onChange={(event)=>{
                                             readValue("email",event.target.value)
                                         }}/>
 
@@ -75,10 +78,14 @@ function RestaurantAuthentication()
                                         <input class="input_field" type='password' placeholder='password' onChange={(event)=>{
                                             readValue("password",event.target.value)
                                         }}/>
-                                        <input class="input_field" type='number' placeholder='enter mobile number' onChange={(event)=>{
+                                        
+
+                                    </div>
+
+                                    <div>
+                                    <input class="input_field" type='number' placeholder='enter mobile number' onChange={(event)=>{
                                             readValue("mobile",event.target.value)
                                         }}/>
-
                                     </div>
                                     
                                 
@@ -93,7 +100,6 @@ function RestaurantAuthentication()
                                             }}/>
 
                                             </div>
-                                        <small id="cmt" className="comments">please provide input values</small>
                                     </div>
                                     <textarea placeholder='enter address' name="" id="textarea" cols="10" rows="10" class="input_textarea" onChange={(event)=>{
                                         readValue("address",event.target.value)
