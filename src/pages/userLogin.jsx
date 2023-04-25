@@ -5,8 +5,6 @@ import Header from "../components/header";
 
 import { emailRegex } from "./email";
 
-
-
 function UserLogin()
 {
     let navigate = useNavigate();
